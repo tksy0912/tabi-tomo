@@ -1,24 +1,34 @@
-# README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# 旅TOMO！
+​
+## サイト概要
+### サイトテーマ
+旅のしおりを作成・共有し、旅の写真や思い出と共に投稿することができるコミュニティサイト
+​
+### テーマを選んだ理由
+友達と旅行に行くことが好きなのですが、人数が多くなるほどスケジュール管理や行先のリストアップに手間取り、やりたかったことができないという経験がありました。
+みんなでスケジュールを共有し、適宜調整できるようなアプリがあればより充実した旅の時間にすることができるのではないかと考えました。
+また、旅の思い出として投稿することで、他のユーザーの旅の参考や助けにもなると考え、このテーマにしました。
+​
+### ターゲットユーザ
+ - 旅行が好きで、満足できる思い出作りがしたいと考えている人
+ - 友達と旅行の思い出を共有したいと考えている人
+​
+### 主な利用シーン
+ - 旅行の計画を立てる時
+ - 旅行中にスケジュールを確認、変更する時
+ - 旅行後、思い出として投稿する時
+ - 他の人の旅のしおり、思い出を検索する時
+​
+## 設計書
+後ほど作成予定
+​
+## 開発環境
+- OS：Linux(CentOS)
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JSライブラリ：jQuery
+- IDE：Cloud9
+​
+## 使用素材
+- フリーイラスト・写真素材として以下を使用予定
+  - Unsplash(https://unsplash.com/ja)
