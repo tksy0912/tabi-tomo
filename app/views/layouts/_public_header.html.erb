@@ -1,0 +1,40 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark text-white pt-5 pb-4">
+  <div class="container">
+    <a class="navbar-brand" href="/">TabiTomo</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+                      aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav ml-auto">
+        <% if user_signed_in? %>
+          <li class="nav-item">
+              <button type="button" class="btn btn-outline-light"><i class="fa-solid fa-user"></i> マイページ</button>
+          </li>
+          <li class="nav-item">
+              <button type="button" class="btn btn-outline-light"><i class="fa-solid fa-cake-candles"></i> 商品一覧</button>
+          </li>
+          <li class="nav-item">
+              <button type="button" class="btn btn-outline-light"><i class="fa-solid fa-cart-shopping"></i> カート</button>
+          </li>
+          <li class="nav-item">
+              <button type="button" class="btn btn-outline-light"><i class="fa-solid fa-right-from-bracket"></i> ログアウト</button>
+          </li>
+        <% else %>
+          <li class="nav-item">
+              <button type="button" class="btn btn-outline-light"><i class="fa-solid fa-link"></i> About</button>
+          </li>
+          <li class="nav-item">
+              <button type="button" class="btn btn-outline-light"><i class="fa-solid fa-cake-candles"></i> 商品一覧</button>
+          </li>
+          <li class="nav-item">
+              <button type="button" class="btn btn-outline-light"><i class="fa-solid fa-user-plus"></i> 新規登録</button>
+          </li>
+          <li class="nav-item">
+              <button type="button" class="btn btn-outline-light"><i class="fa-solid fa-right-to-bracket"></i> ログイン</button>
+          </li>
+        <% end %>
+        </ul>
+      </div>
+  </div>
+</nav>
