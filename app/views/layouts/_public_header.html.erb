@@ -9,7 +9,7 @@
         <ul class="navbar-nav ml-auto">
         <% if user_signed_in? %>
           <li class="nav-item">
-            <%= link_to users_my_page_path, class: 'nav-link' do %>
+            <%= link_to users_my_page_path(current_user), class: 'nav-link' do %>
               <button type="button" class="btn btn-outline-light"><i class="fa-solid fa-user"></i> マイページ</button>
             <% end %>
           </li>
