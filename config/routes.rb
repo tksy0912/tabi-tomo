@@ -10,13 +10,15 @@ Rails.application.routes.draw do
 
   root to: "public/homes#top"
 
-  get "home/top" => "homes#top"
-  get "about" => "homes#about"
-  resources :users, only: [:new, :create]
-  resources :trips
-  resources :posts, only: [:index,:show,:edit,:create,:destroy,:update] do
-    resources :comments, only: [:create, :destroy]
-    resource :favorites, only: [:create, :destroy]
+  namespace :public do
+    get "home/top" => "homes#top"
+    get "about" => "homes#about"
+    resources :users, only: [:new, :create]
+    resources :trips
+    resources :posts, only: [:index,:show,:edit,:create,:destroy,:update] do
+      resources :comments, only: [:create, :destroy]
+      resource :favorites, only: [:create, :destroy]
+    end
   end
 
   scope module: :public do
