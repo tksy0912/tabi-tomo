@@ -1,0 +1,32 @@
+<table>
+  <tr>
+    <td class="bg-light col-lg-2">日付</td>
+    <td><%= @schedule.date %></td>
+  </tr>
+  <tr>
+    <td class="bg-light col-lg-2">行先</td>
+    <td><%= @schedule.destination %></td>
+  </tr>
+  <tr>
+    <td class="bg-light col-lg-2">移動手段</td>
+    <td><%= @schedule.transportation %></td>
+  </tr>
+  <tr>
+    <td class="bg-light col-lg-2">宿泊</td>
+    <% if @schedule.is_accommodation %>
+      <td class="text p-2">あり</td>
+    <% else %>
+      <td class="text-secondary p-2">日帰り</td>
+    <% end %>
+  </tr>
+  <tr>
+    <td class="bg-light col-lg-2">宿泊先</td>
+    <td>
+    <% if @schedule.is_accommodation %>
+      <%= @schedule.accommodation_name %>
+    <% else %>
+      宿泊情報なし
+    <% end %>
+    </td>
+  </tr>
+</table>

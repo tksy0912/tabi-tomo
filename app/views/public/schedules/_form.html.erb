@@ -1,0 +1,29 @@
+<%= form_with(model: @schedule, url: public_schedules_path) do |f| %>
+  <div>
+    <%= f.label "日付" %>
+    <%= f.date_field :date %>
+  </div>
+
+  <div>
+    <%= f.label "行先" %>
+    <%= f.text_field :destination %>
+  </div>
+
+  <div>
+    <%= f.label "移動手段" %>
+    <%= f.text_field :transportation %>
+  </div>
+
+  <div>
+    <%= f.label "宿泊" %>
+    <%= f.check_box :is_accommodation %>
+  </div>
+
+  <% if f.object.is_accommodation %>
+    <div>
+      <%= f.label "宿泊先" %>
+      <%= f.text_field :accommodation_name %>
+    </div>
+  <% end %>
+
+<% end %>
