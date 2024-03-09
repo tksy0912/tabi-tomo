@@ -9,26 +9,36 @@
         <ul class="navbar-nav ml-auto">
         <% if user_signed_in? %>
           <li class="nav-item">
+            <%= link_to users_my_page_path(current_user), class: 'nav-link' do %>
               <button type="button" class="btn btn-outline-light"><i class="fa-solid fa-user"></i> マイページ</button>
+            <% end %>
           </li>
           <li class="nav-item">
-              <button type="button" class="btn btn-outline-light"><i class="fa-solid fa-cake-candles"></i> タイムライン</button>
+              <button type="button" class="btn btn-outline-light"><i class="fa-solid fa-photo-film"></i> タイムライン</button>
           </li>
           <li class="nav-item">
-              <button type="button" class="btn btn-outline-light"><i class="fa-solid fa-cart-shopping"></i> スキ！一覧</button>
+              <button type="button" class="btn btn-outline-light"><i class="fa-solid fa-heart"></i> スキ！一覧</button>
           </li>
           <li class="nav-item">
+            <%= link_to destroy_user_session_path, method: :delete, class: 'nav-link' do %>
               <button type="button" class="btn btn-outline-light"><i class="fa-solid fa-right-from-bracket"></i> ログアウト</button>
+            <% end %>
           </li>
         <% else %>
           <li class="nav-item">
+            <%= link_to public_about_path, class: 'nav-link' do %>
               <button type="button" class="btn btn-outline-light"><i class="fa-solid fa-link"></i> About</button>
+            <% end %>
           </li>
           <li class="nav-item">
+            <%= link_to new_user_registration_path, class: 'nav-link' do %>
               <button type="button" class="btn btn-outline-light"><i class="fa-solid fa-user-plus"></i> 新規登録</button>
+            <% end %>
           </li>
           <li class="nav-item">
+            <%= link_to user_session_path, class: 'nav-link' do %>
               <button type="button" class="btn btn-outline-light"><i class="fa-solid fa-right-to-bracket"></i> ログイン</button>
+            <% end %>
           </li>
         <% end %>
         </ul>

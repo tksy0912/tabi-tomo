@@ -1,0 +1,17 @@
+<table>
+  <tr><%= image_tag user.get_profile_image, size:'100x100' %></tr>
+  <tr>
+	  <th>name</th>
+	  <th><%= user.name %></th>
+  </tr>
+  <tr>
+	  <th>introduction</th>
+	  <th><%= user.introduction %></th>
+  </tr>
+  <tr>
+	  <th></th>
+	  <th>
+      <%= link_to "Edit", users_information_edit_path, class: "btn btn-outline-secondary btn-block edit_user_#{user.id}" %>
+	   </th>
+  </tr>
+</table>
