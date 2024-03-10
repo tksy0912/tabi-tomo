@@ -1,0 +1,14 @@
+<table class="table table-borderless">
+  <thead style="background-color: #e9ecef;">
+    <tr>
+      <th>タイトル</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @trips.each do |trip| %>
+    <tr>
+      <td class="align-middle"><%=link_to trip.title, public_trip_path(trip.id) %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

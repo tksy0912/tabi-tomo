@@ -7,22 +7,11 @@ class Public::TripsController < ApplicationController
   def create
     @trip = Trip.new(trip_params)
     @trip.user_id = current_user.id
-
     @trip.save
-    redirect_to public_trip_path(@trip)
-#      @schedule = Schedule.new(schedule_params)
-#      @schedule.trip_id = @trip.id # スケジュールのtrip_idに作成した旅行のIDを代入
-#      if @schedule.save
-#        redirect_to public_trip_path(@trip)
-#      else
-#        render :new
-#      end
-#    else
-#      render :new
-#    end
+    redirect_to edit_public_trip_path(@trip)
   end
 
-  def show
+  def edit
     @trip = Trip.find(params[:id])
     @schedules = @trip.schedules
     @schedule = Schedule.new
@@ -31,6 +20,19 @@ class Public::TripsController < ApplicationController
 
   def index
     @trips = Trip.all
+  end
+
+  def show
+     @trip = Trip.find(params[:id])
+     @schedules = @trip.schedules
+     @schedule = Schedule.new
+     @schedule.trip = @trip
+  end
+
+  def destroy
+    @trip = Trip.find(params[:id])
+    @trip.destroy
+    redirect_to users_my_page_path
   end
 
   private

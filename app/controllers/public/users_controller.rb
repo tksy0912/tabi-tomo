@@ -1,6 +1,7 @@
 class Public::UsersController < ApplicationController
   def show
     @user = current_user
+    @trips = Trip.all
   end
 
   def edit

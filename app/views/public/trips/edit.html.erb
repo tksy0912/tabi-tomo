@@ -4,20 +4,19 @@
       <h2><%= @trip.title %></h2>
         <table class="table table-borderless">
           <tr>
-            <td class="bg-light col-lg-2">期間</td>
+            <td class="bg-light col-lg-2">日程</td>
             <td><%= @trip.departure_date %> ~ <%= @trip.return_date %></td>
           </tr>
         </table>
         <h3>Schedules</h3>
+        <%= render 'public/schedules/form', schedule: @schedule %>
         <table>
           <% @schedules.each do |schedule| %>
             <%= render 'public/schedules/show', schedule: schedule %>
           <% end %>
         </table>
 
-        <%= link_to '編集する', edit_public_trip_path(@trip), class: "btn btn-sm btn-success edit_trip_#{@trip.id}" %>
-        <%= link_to "削除する", public_trip_path(@trip.id), method: :delete, class: "btn btn-danger ms-3" %>
-
+        <%= link_to "保存する", public_trip_path(@trip.id) %>
     </div>
   </div>
 </div>
