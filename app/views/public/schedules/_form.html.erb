@@ -16,14 +16,15 @@
 
   <div>
     <%= f.label "宿泊" %>
-    <%= f.check_box :is_accommodation %>
+    <%= f.radio_button :is_accommodation, true %>
+    <%= f.label "有り" %>
+    <%= f.radio_button :is_accommodation, false %>
+    <%= f.label "無し" %>
   </div>
 
-  <% if f.object.is_accommodation %>
-    <div>
-      <%= f.label "宿泊先" %>
-      <%= f.text_field :accommodation_name %>
-    </div>
-  <% end %>
+  <div>
+    <%= f.label "宿泊先" %>
+    <%= f.text_field :accommodation_name %>
+  </div>
 
 <% end %>

@@ -9,7 +9,7 @@ class Public::TripsController < ApplicationController
     @trip.user_id = current_user.id
 
     if @trip.save
-      @schedule = Schedule.new(schedule_params) # スケジュールを新規作成
+      @schedule = Schedule.new(schedule_params)
       @schedule.trip_id = @trip.id # スケジュールのtrip_idに作成した旅行のIDを代入
       if @schedule.save
         redirect_to public_trip_path(@trip)
