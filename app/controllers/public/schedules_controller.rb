@@ -1,6 +1,9 @@
 class Public::SchedulesController < ApplicationController
   def new
+    @trip = Trip.find(params[:trip_id])
     @schedule = Schedule.new
+    @schedules = @trip.schedules
+    @schedule.trip = @trip
   end
 
   def create
@@ -9,6 +12,15 @@ class Public::SchedulesController < ApplicationController
     redirect_to public_trip_path(@schedule.trip_id)
   end
 
+  def edit
+    @trip = Trip.find(params[:id])
+    @schedules = @trip.schedules
+  end
+
+  def update
+    @schedule.update(schedule_params)
+    redirect_to public_trip_path(@trip.id)
+  end
 
   private
 

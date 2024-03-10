@@ -8,14 +8,17 @@ class Public::TripsController < ApplicationController
     @trip = Trip.new(trip_params)
     @trip.user_id = current_user.id
     @trip.save
-    redirect_to edit_public_trip_path(@trip)
+#    redirect_to edit_public_trip_path(@trip)
+    redirect_to new_public_schedule_path(trip_id: @trip.id)
   end
 
   def edit
     @trip = Trip.find(params[:id])
-    @schedules = @trip.schedules
-    @schedule = Schedule.new
-    @schedule.trip = @trip
+  end
+
+  def update
+    @trip.update(trip_params)
+    redirect_to public_trip_path(trip.id)
   end
 
   def index

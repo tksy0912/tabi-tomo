@@ -8,14 +8,15 @@
             <td><%= @trip.departure_date %> ~ <%= @trip.return_date %></td>
           </tr>
         </table>
+        <%= link_to '編集する', edit_public_trip_path(@trip), class: "btn btn-sm btn-success edit_trip_#{@trip.id}" %>
         <h3>Schedules</h3>
         <table>
           <% @schedules.each do |schedule| %>
             <%= render 'public/schedules/show', schedule: schedule %>
           <% end %>
         </table>
+        <%= link_to '編集する', edit_public_schedule_path(@trip), class: "btn btn-sm btn-success edit_trip_#{@trip.id}" %>
 
-        <%= link_to '編集する', edit_public_trip_path(@trip), class: "btn btn-sm btn-success edit_trip_#{@trip.id}" %>
         <%= link_to "削除する", public_trip_path(@trip.id), method: :delete, class: "btn btn-danger ms-3" %>
 
     </div>

@@ -1,22 +1,23 @@
 <div class='container'>
   <div class='row'>
     <div class='col'>
-      <h2><%= @trip.title %></h2>
-        <table class="table table-borderless">
-          <tr>
-            <td class="bg-light col-lg-2">日程</td>
-            <td><%= @trip.departure_date %> ~ <%= @trip.return_date %></td>
-          </tr>
-        </table>
-        <h3>Schedules</h3>
-        <%= render 'public/schedules/form', schedule: @schedule %>
-        <table>
-          <% @schedules.each do |schedule| %>
-            <%= render 'public/schedules/show', schedule: schedule %>
-          <% end %>
-        </table>
+      <%= form_with(model: @trip, url: edit_public_trip_path(@trip.id), method: :patch) do |f| %>
+        <div class="field">
+          <%= f.label "タイトル" %>
+          <%= f.text_field :title %>
+        </div>
 
-        <%= link_to "保存する", public_trip_path(@trip.id) %>
+        <div class="field">
+          <%= f.label "日程" %>
+          <%= f.date_field :departure_date %>
+            ～
+          <%= f.date_field :return_date %>
+        </div>
+
+        <div class="actions">
+          <%= f.submit "更新" %>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
