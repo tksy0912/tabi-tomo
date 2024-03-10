@@ -5,7 +5,7 @@ class Public::SchedulesController < ApplicationController
 
   def create
     @schedule = Schedule.new(schedule_params)
-    @schedule.save
+    @schedule.save!
     redirect_to public_trip_path(@schedule.trip_id)
   end
 

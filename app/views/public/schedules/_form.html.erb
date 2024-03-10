@@ -27,4 +27,10 @@
     <%= f.text_field :accommodation_name %>
   </div>
 
+  <%= f.hidden_field :trip_id, :value => @schedule.trip.id %>
+
+  <div class="actions">
+    <%= f.submit "新規スケジュール作成" %>
+  </div>
+
 <% end %>

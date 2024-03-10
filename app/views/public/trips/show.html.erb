@@ -8,7 +8,13 @@
             <td><%= @trip.departure_date %> ~ <%= @trip.return_date %></td>
           </tr>
         </table>
-        <%= render 'public/schedules/show', schedule: @schedule %>
+        <h3>Schedules</h3>
+        <%= render 'public/schedules/form', schedule: @schedule %>
+        <table>
+          <% @schedules.each do |schedule| %>
+            <%= render 'public/schedules/show', schedule: schedule %>
+          <% end %>
+        </table>
     </div>
   </div>
 </div>
