@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     get "about" => "homes#about"
     resources :users, only: [:new, :create, :show, :edit, :update]
     resources :trips
+    resources :schedules
     resources :posts, only: [:index, :show, :edit, :create, :destroy, :update] do
       resources :comments, only: [:create, :destroy]
       resource :favorites, only: [:create, :destroy]

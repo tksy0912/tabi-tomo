@@ -1,0 +1,23 @@
+<div class='container'>
+  <div class='row'>
+    <div class='col'>
+      <%= form_with(model: @trip, url: edit_public_trip_path(@trip.id), method: :patch) do |f| %>
+        <div class="field">
+          <%= f.label "タイトル" %>
+          <%= f.text_field :title %>
+        </div>
+
+        <div class="field">
+          <%= f.label "日程" %>
+          <%= f.date_field :departure_date %>
+            ～
+          <%= f.date_field :return_date %>
+        </div>
+
+        <div class="actions">
+          <%= f.submit "更新" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

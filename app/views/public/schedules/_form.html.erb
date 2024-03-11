@@ -1,0 +1,36 @@
+<%= form_with(model: @schedule, url: public_schedules_path) do |f| %>
+  <div>
+    <%= f.label "日付" %>
+    <%= f.date_field :date %>
+  </div>
+
+  <div>
+    <%= f.label "行先" %>
+    <%= f.text_field :destination %>
+  </div>
+
+  <div>
+    <%= f.label "移動手段" %>
+    <%= f.text_field :transportation %>
+  </div>
+
+  <div>
+    <%= f.label "宿泊" %>
+    <%= f.radio_button :is_accommodation, true %>
+    <%= f.label "有り" %>
+    <%= f.radio_button :is_accommodation, false %>
+    <%= f.label "無し" %>
+  </div>
+
+  <div>
+    <%= f.label "宿泊先" %>
+    <%= f.text_field :accommodation_name %>
+  </div>
+
+  <%= f.hidden_field :trip_id, :value => @schedule.trip.id %>
+
+  <div class="actions">
+    <%= f.submit "新規スケジュール作成" %>
+  </div>
+
+<% end %>

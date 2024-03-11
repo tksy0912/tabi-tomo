@@ -1,0 +1,22 @@
+<div class='container'>
+  <div class='row'>
+    <div class='col'>
+      <h2><%= @trip.title %></h2>
+        <table class="table table-borderless">
+          <tr>
+            <td class="bg-light col-lg-2">日程</td>
+            <td><%= @trip.departure_date %> ~ <%= @trip.return_date %></td>
+          </tr>
+        </table>
+        <h3>Schedules</h3>
+        <%= render 'form', schedule: @schedule %>
+        <table>
+          <% @schedules.each do |schedule| %>
+            <%= render 'show', schedule: schedule %>
+          <% end %>
+        </table>
+
+        <%= link_to "保存する", public_trip_path(@trip.id) %>
+    </div>
+  </div>
+</div>

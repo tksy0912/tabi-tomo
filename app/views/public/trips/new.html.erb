@@ -1,0 +1,24 @@
+<div class='container'>
+  <div class='row'>
+    <div class='col'>
+      <h2>New Trip</h2>
+      <%= form_with(model: @trip, url: public_trips_path) do |f| %>
+        <div class="field">
+          <%= f.label "タイトル" %>
+          <%= f.text_field :title %>
+        </div>
+
+        <div class="field">
+          <%= f.label "日程" %>
+          <%= f.date_field :departure_date %>
+            ～
+          <%= f.date_field :return_date %>
+        </div>
+
+        <div class="actions">
+          <%= f.submit "新規旅行作成" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
