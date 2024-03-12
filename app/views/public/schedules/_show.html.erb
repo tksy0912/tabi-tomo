@@ -29,6 +29,6 @@
     </td>
   </tr>
   <tr>
-    <td><%= link_to '編集', edit_public_schedule_path(@schedules), class: "btn btn-success edit_schedule_#{@schedules}" %></td>
+    <td><%= link_to '編集', schedules_edit_public_trip_path(schedule.trip), class: "btn btn-success edit_schedule_#{schedule.trip}" %></td>
     <td><%= link_to '削除', public_schedule_path(schedule), method: :delete, class: "btn btn-danger" %></td>
   </tr>

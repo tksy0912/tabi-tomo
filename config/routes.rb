@@ -18,7 +18,12 @@ Rails.application.routes.draw do
         get :favorites
       end
     end
-    resources :trips
+    resources :trips do
+      member do
+        get :schedules_edit
+        patch :schedules_update
+      end
+    end
     resources :schedules do
        collection do
          put 'update_multiple'

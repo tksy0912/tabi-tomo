@@ -14,6 +14,8 @@
             ～
           <%= f.date_field :return_date %>
         </div>
+        
+        <%= render 'public/trips/schedules_form', f: f %>
 
         <div class="actions">
           <%= f.submit "新規旅行作成" %>

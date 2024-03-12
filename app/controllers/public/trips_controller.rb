@@ -1,25 +1,50 @@
 class Public::TripsController < ApplicationController
   def new
     @trip = Trip.new
-    @schedule = Schedule.new
+    3.times { @trip.schedules.build }
   end
 
   def create
     @trip = Trip.new(trip_params)
     @trip.user_id = current_user.id
-    @trip.save
-#    redirect_to edit_public_trip_path(@trip)
-    redirect_to new_public_schedule_path(trip_id: @trip.id)
+    if @trip.save
+      flash[:notice] = "success"
+      redirect_to public_trip_path(@trip)
+    else
+      flash.now[:alert] = "failed"
+      render :new
+    end
   end
 
   def edit
     @trip = Trip.find(params[:id])
   end
+  
+  def schedules_edit
+    @trip = Trip.find(params[:id])
+    @trip.schedules
+  end
 
   def update
     @trip = Trip.find(params[:id])
-    @trip.update(trip_params)
-    redirect_to public_trip_path(@trip.id)
+    if @trip.update(trip_params)
+      flash[:notice] = "success"
+      redirect_to public_trip_path(@trip.id)
+    else
+      flash.now[:alert] = "failed"
+      render :edit
+    end
+  end
+  
+  def schedules_update
+    @trip = Trip.find(params[:id])
+    if @trip.update(trip_with_schedules_params)
+      flash[:notice] = "success"
+      redirect_to public_trip_path(@trip.id)
+    else
+      flash.now[:alert] = "failed"
+      render :schedules_edit
+    end
   end
 
   def index
@@ -42,6 +67,10 @@ class Public::TripsController < ApplicationController
   private
 
   def trip_params
-    params.require(:trip).permit(:title, :departure_date, :return_date, :user_id, :schedule_id)
+    params.require(:trip).permit(:title, :departure_date, :return_date, :user_id, :schedule_id, schedules_attributes: [:id, :date, :destination, :transportation, :is_accommodation, :accommodation_name, :trip_id])
+  end
+  
+  def trip_with_schedules_params
+    params.require(:trip).permit(schedules_attributes: [:id, :date, :destination, :transportation, :is_accommodation, :accommodation_name, :trip_id])
   end
 end

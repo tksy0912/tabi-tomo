@@ -3,7 +3,9 @@
     <div class='col'>
       <%= image_tag @post.get_post_image %>
       <p>タイトル：<%= @post.title %></p>
-      <%= render "public/favorites/btn", post: @post %>
+        <div class=<%= "favorite-" + @post.id.to_s %> >
+          <%= render "public/favorites/btn", post: @post %>
+        </div>
       <p>説明：<%= @post.caption %></p>
       <p>ユーザーネーム：<%= @post.user.name %></p>
       <p>投稿日時：<%= @post.created_at.strftime('%Y/%m/%d') %></p>

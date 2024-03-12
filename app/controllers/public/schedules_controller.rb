@@ -14,10 +14,11 @@ class Public::SchedulesController < ApplicationController
 
   def edit
     @trip = Trip.find(params[:id])
-    @schedules = @trip.schedules
+    @trip.schedules
   end
 
-  def update_multiple
+
+  def update
     schedules_params = params.require(:schedules)
      .map { |_, attributes| attributes.permit(:date, :destination, :transportation, :is_accommodation, :accommodation_name) }
 
