@@ -19,7 +19,11 @@ Rails.application.routes.draw do
       end
     end
     resources :trips
-    resources :schedules
+    resources :schedules do
+       collection do
+         put 'update_multiple'
+       end
+     end
     resources :posts, only: [:index, :show, :new, :create, :destroy] do
       resources :comments, only: [:create, :destroy]
       resource :favorites, only: [:create, :destroy]

@@ -2,52 +2,21 @@
   <div class='row'>
     <div class='col'>
       <h2><%= @trip.title %></h2>
-        <table class="table table-borderless">
-          <tr>
-            <td class="bg-light col-lg-2">日程</td>
-            <td><%= @trip.departure_date %> ~ <%= @trip.return_date %></td>
-          </tr>
-        </table>
-        <h3>Schedules</h3>
-        <%= render 'form', schedule: @schedule %>
-        <table>
-          <% @schedules.each do |schedule| %>
-            <%= form_with(model: @schedule, url: edit_public_schedule_path(@trip.id), method: :patch) do |f| %>
-              <div>
-                <%= f.label "日付" %>
-                <%= f.date_field :date %>
-              </div>
-            
-              <div>
-                <%= f.label "行先" %>
-                <%= f.text_field :destination %>
-              </div>
-            
-              <div>
-                <%= f.label "移動手段" %>
-                <%= f.text_field :transportation %>
-              </div>
-            
-              <div>
-                <%= f.label "宿泊" %>
-                <%= f.radio_button :is_accommodation, true %>
-                <%= f.label "有り" %>
-                <%= f.radio_button :is_accommodation, false %>
-                <%= f.label "無し" %>
-              </div>
-            
-              <div>
-                <%= f.label "宿泊先" %>
-                <%= f.text_field :accommodation_name %>
-              </div>
-            <% end %>
-            <div class="actions">
-              <%= f.submit "更新" %>
-            </div>
+      <%= form_tag(update_multiple_public_schedules_path, method: :put) do %>
+        <% @schedules.each do |schedule| %>
+          <%= fields_for "schedules[]", schedule do |f| %>
+            <tr>
+              <td><%= f.label :date %>: <%= f.text_field :date %></td>
+              <td><%= f.label :destination %>: <%= f.text_field :destination %></td>
+              <td><%= f.label :transportation %>: <%= f.text_field :transportation %></td>
+              <td><%= f.label :is_accommodation %>: <%= f.check_box :is_accommodation %></td>
+              <td><%= f.label :accommodation_name %>: <%= f.text_field :accommodation_name %></td>
+            </tr>
           <% end %>
-        </table>
+        <% end %>
 
-        <%= link_to "保存する", public_trip_path(@trip.id) %>
+        <%= submit_tag "一括更新" %>
+      <% end %>
     </div>
   </div>
 </div>
