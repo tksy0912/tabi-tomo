@@ -17,8 +17,9 @@ class Public::TripsController < ApplicationController
   end
 
   def update
+    @trip = Trip.find(params[:id])
     @trip.update(trip_params)
-    redirect_to public_trip_path(trip.id)
+    redirect_to public_trip_path(@trip.id)
   end
 
   def index

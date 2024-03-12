@@ -25,6 +25,7 @@ Rails.application.routes.draw do
       resource :favorites, only: [:create, :destroy]
     end
   end
+  patch '/public/trips/:id/edit', to: 'public/trips#update', as: 'update_public_trip'
 
   scope module: :public do
     get "users/my_page" => "users#show"
