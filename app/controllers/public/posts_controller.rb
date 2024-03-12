@@ -20,6 +20,21 @@ class Public::PostsController < ApplicationController
     @post = Post.find(params[:id])
   end
 
+  def edit
+    @user = current_user
+    @post = Post.find(params[:id])
+  end
+
+  def update
+    @user = current_user
+    @post = Post.find(params[:id])
+    if @post.update(post_params)
+      redirect_to public_post_path(@post.id)
+    else
+      redirect_to request.referer
+    end
+  end
+
 
   private
 
