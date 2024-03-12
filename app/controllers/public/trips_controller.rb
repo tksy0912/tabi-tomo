@@ -1,7 +1,7 @@
 class Public::TripsController < ApplicationController
   def new
     @trip = Trip.new
-    3.times { @trip.schedules.build }
+    @trip.schedules.build
   end
 
   def create
@@ -67,10 +67,10 @@ class Public::TripsController < ApplicationController
   private
 
   def trip_params
-    params.require(:trip).permit(:title, :departure_date, :return_date, :user_id, :schedule_id, schedules_attributes: [:id, :date, :destination, :transportation, :is_accommodation, :accommodation_name, :trip_id])
+    params.require(:trip).permit(:title, :departure_date, :return_date, :user_id, :schedule_id, schedules_attributes: [:id, :date, :destination, :transportation, :is_accommodation, :accommodation_name, :trip_id, :_destroy])
   end
   
   def trip_with_schedules_params
-    params.require(:trip).permit(schedules_attributes: [:id, :date, :destination, :transportation, :is_accommodation, :accommodation_name, :trip_id])
+    params.require(:trip).permit(schedules_attributes: [:id, :date, :destination, :transportation, :is_accommodation, :accommodation_name, :trip_id, :_destroy])
   end
 end

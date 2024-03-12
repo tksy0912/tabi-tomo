@@ -15,6 +15,7 @@
             <%= render 'public/schedules/show', schedule: schedule %>
           <% end %>
         </table>
+        <%= link_to '編集', schedules_edit_public_trip_path(@trip), class: "btn btn-success edit_schedule_#{@trip}" %>
         <%= link_to '旅行削除', public_trip_path(@trip.id), method: :delete, class: "btn btn-danger" %>
         <%= link_to '投稿', new_public_post_path(trip_id: @trip.id), class: "btn btn-primary" %>
     </div>
