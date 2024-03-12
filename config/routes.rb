@@ -37,5 +37,7 @@ Rails.application.routes.draw do
     resources :users, only: [:index, :show, :edit, :update]
     resources :comments, only: [:destroy]
   end
+
+  get "public/search" => "public/searches#search"
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
