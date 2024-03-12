@@ -1,0 +1,27 @@
+<div class='container'>
+  <div class='row'>
+    <div class='col'>
+      <h2>投稿編集</h2>
+        <%= form_with(model: @post, url: public_post_path(@post.id), method: :patch) do |f| %>
+          <%= f.hidden_field :trip_id, value: params[:trip_id] %>
+          <%= f.file_field :post_image, accept: "image/*", class: "w-100" %>
+          <div class="input-group mb-3 mt-4">
+            <div class="input-group-prepend">
+              <span class="input-group-text" aria-hidden="true"><i class="fas fa-building"></i></span>
+            </div>
+            <div class="field">
+              <%= f.text_field :title, class: "form-control" %>
+            </div>
+          </div>
+
+            <div class="field">
+              <%= f.text_field :caption, class: "form-control" %>
+            </div>
+
+            <div class="actions">
+              <%= f.submit "更新", class: "btn btn-lg btn-block btn-info mt-4" %>
+            </div>
+        <% end %>
+    </div>
+  </div>
+</div>
