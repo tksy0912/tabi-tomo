@@ -12,5 +12,9 @@
         <%= link_to "削除する", public_post_path(@post.id), method: :delete, class: "btn btn-danger ms-3" %>
       <% end %>
     </div>
+    <div class='col'>
+      <%= render "public/comments/index", post: @post %>
+      <%= render "public/comments/form", post: @post, comment: @comment %>
+    </div>
   </div>
 </div>
