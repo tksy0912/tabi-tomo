@@ -15,6 +15,15 @@
           <%= f.date_field :return_date %>
         </div>
 
+        <%= link_to_add_association 'add_schedule', f, :schedules, data: { association_insertion_node: '#schedule-forms', association_insertion_method: 'append' } %>
+
+        <div id="schedule-forms">
+          <%= f.fields_for :schedules do |s| %>
+           <%= render 'schedule_fields', f: s %>
+          <% end %>
+        </div>
+
+
         <div class="actions">
           <%= f.submit "新規旅行作成" %>
         </div>

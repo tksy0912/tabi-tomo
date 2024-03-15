@@ -14,13 +14,25 @@ class Public::SchedulesController < ApplicationController
 
   def edit
     @trip = Trip.find(params[:id])
-    @schedules = @trip.schedules
+    @trip.schedules
   end
 
+
   def update
-    @schedule.update(schedule_params)
-    redirect_to public_trip_path(@trip.id)
+    schedules_params = params.require(:schedules)
+     .map { |_, attributes| attributes.permit(:date, :destination, :transportation, :is_accommodation, :accommodation_name) }
+
+    @schedules = Schedule.update(schedules_params.keys, schedules_params.values)
+
+    redirect_to public_trip_path(@schedules.first.trip_id)
   end
+
+  def destroy
+    @schedule = Schedule.find(params[:id])
+    @schedule.destroy
+    redirect_to public_trip_path(@schedule.trip_id)
+  end
+
 
   private
 

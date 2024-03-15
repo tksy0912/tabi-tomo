@@ -18,13 +18,23 @@ Rails.application.routes.draw do
         get :favorites
       end
     end
-    resources :trips
-    resources :schedules
+    resources :trips do
+      member do
+        get :schedules_edit
+        patch :schedules_update
+      end
+    end
+    # resources :schedules do
+    #   collection do
+    #     put 'update_multiple'
+    #   end
+    # end
     resources :posts, only: [:index, :show, :new, :create, :destroy] do
       resources :comments, only: [:create, :destroy]
       resource :favorites, only: [:create, :destroy]
     end
   end
+  patch '/public/trips/:id/edit', to: 'public/trips#update', as: 'update_public_trip'
 
   scope module: :public do
     get "users/my_page" => "users#show"
