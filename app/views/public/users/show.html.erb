@@ -9,7 +9,15 @@
     <div class='col-md-8 offset-md-1'>
       <h2>My Schedule</h2>
       <%= link_to "New Trip", new_public_trip_path %>
-      <%= render 'public/trips/index',trips: @trips %>
+      <%= month_calendar(events: @trips) do |date, trips| %>
+        <%= date.day %>
+
+        <% trips.each do |trip| %>
+          <div>
+            <%= link_to trip.title, public_trip_path(trip.id) %>
+          </div>
+        <% end %>
+      <% end %>
     </div>
   </div>
 </div>
