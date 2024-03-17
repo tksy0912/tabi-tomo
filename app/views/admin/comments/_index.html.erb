@@ -1,0 +1,18 @@
+<table>
+  <tbody>
+    <% post.comments.each do |comment| %>
+    <tr>
+      <td>
+        <%= link_to users_my_page_path(comment.user) do %>
+          <%= image_tag comment.user.get_profile_image, size: "50x50" %><br>
+          <%= comment.user.name %>
+        <% end %>
+      </td>
+      <td><%= comment.comment %></td>
+      <td>
+        <%= link_to "削除", admin_comment_path(comment.id), method: :delete, class: "btn btn-sm btn-danger float-end" %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
