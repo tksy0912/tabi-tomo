@@ -67,7 +67,7 @@ class Public::TripsController < ApplicationController
   private
 
   def trip_params
-    params.require(:trip).permit(:title, :start_date, :end_date, :user_id, :schedule_id, schedules_attributes: [:id, :date, :destination, :transportation, :is_accommodation, :accommodation_name, :trip_id, :_destroy])
+    params.require(:trip).permit(:title, :start_time, :end_time, :user_id, :schedule_id, schedules_attributes: [:id, :date, :destination, :transportation, :is_accommodation, :accommodation_name, :trip_id, :_destroy])
   end
 
   def trip_with_schedules_params
