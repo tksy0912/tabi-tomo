@@ -5,7 +5,7 @@
         <table class="table table-borderless">
           <tr>
             <td class="bg-light col-lg-2">期間</td>
-            <td><%= @trip.departure_date %> ~ <%= @trip.return_date %></td>
+            <td><%= @trip.start_time.to_date %> ~ <%= @trip.end_time.to_date %></td>
           </tr>
         </table>
         <%= link_to '編集', edit_public_trip_path(@trip), class: "btn btn-success edit_trip_#{@trip.id}" %>
