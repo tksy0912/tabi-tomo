@@ -10,9 +10,9 @@
 
         <div class="field">
           <%= f.label "日程" %>
-          <%= f.date_field :departure_date %>
+          <%= f.date_field :start_date %>
             ～
-          <%= f.date_field :return_date %>
+          <%= f.date_field :end_date %>
         </div>
 
         <%= link_to_add_association 'add_schedule', f, :schedules, data: { association_insertion_node: '#schedule-forms', association_insertion_method: 'append' } %>

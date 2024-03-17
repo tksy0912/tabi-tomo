@@ -14,7 +14,9 @@
             <% end %>
           </li>
           <li class="nav-item">
+            <%= link_to public_posts_path(current_user), class: 'nav-link' do %>
               <button type="button" class="btn btn-outline-light"><i class="fa-solid fa-photo-film"></i> タイムライン</button>
+            <% end %>
           </li>
           <li class="nav-item">
             <%= link_to favorites_public_user_path(current_user), class: 'nav-link' do %>

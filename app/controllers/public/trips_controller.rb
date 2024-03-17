@@ -19,7 +19,7 @@ class Public::TripsController < ApplicationController
   def edit
     @trip = Trip.find(params[:id])
   end
-  
+
   def schedules_edit
     @trip = Trip.find(params[:id])
     @trip.schedules
@@ -35,7 +35,7 @@ class Public::TripsController < ApplicationController
       render :edit
     end
   end
-  
+
   def schedules_update
     @trip = Trip.find(params[:id])
     if @trip.update(trip_with_schedules_params)
@@ -67,9 +67,9 @@ class Public::TripsController < ApplicationController
   private
 
   def trip_params
-    params.require(:trip).permit(:title, :departure_date, :return_date, :user_id, :schedule_id, schedules_attributes: [:id, :date, :destination, :transportation, :is_accommodation, :accommodation_name, :trip_id, :_destroy])
+    params.require(:trip).permit(:title, :start_date, :end_date, :user_id, :schedule_id, schedules_attributes: [:id, :date, :destination, :transportation, :is_accommodation, :accommodation_name, :trip_id, :_destroy])
   end
-  
+
   def trip_with_schedules_params
     params.require(:trip).permit(schedules_attributes: [:id, :date, :destination, :transportation, :is_accommodation, :accommodation_name, :trip_id, :_destroy])
   end
