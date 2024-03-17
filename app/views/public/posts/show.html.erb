@@ -6,6 +6,13 @@
         <div class=<%= "favorite-" + @post.id.to_s %> >
           <%= render "public/favorites/btn", post: @post %>
         </div>
+
+      <!-- タグリスト -->
+      <% @post_tags.each do |tag| %>
+      <i class="fa-sharp fa-solid fa-tag"></i>
+        <%= link_to tag.name,public_search_tag_path(post_tag_id: tag.id) %>
+      <% end %>
+
       <p>説明：<%= @post.caption %></p>
       <p>ユーザーネーム：<%= @post.user.name %></p>
       <p>投稿日時：<%= @post.created_at.strftime('%Y/%m/%d') %></p>
