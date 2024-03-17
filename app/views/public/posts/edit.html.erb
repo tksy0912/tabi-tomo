@@ -1,9 +1,18 @@
 <div class='container'>
   <div class='row'>
     <div class='col'>
+    <% if @post.errors.any? %>
+      <div class="alert alert-danger">
+        <ul>
+          <% @post.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
       <h2>投稿編集</h2>
         <%= form_with(model: @post, url: public_post_path(@post.id), method: :patch) do |f| %>
-          <%= f.hidden_field :trip_id, value: params[:trip_id] %>
+          <%= f.hidden_field :trip_id, value: @trip_id %>
           <%= f.file_field :post_image, accept: "image/*", class: "w-100" %>
           <div class="input-group mb-3 mt-4">
             <div class="input-group-prepend">

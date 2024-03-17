@@ -33,6 +33,7 @@ class Public::PostsController < ApplicationController
     @user = current_user
     @post = Post.find(params[:id])
     @tag_list = @post.post_tags.pluck(:name).join(',')
+    @trip_id = params[:trip_id]
   end
 
   def update
@@ -42,6 +43,7 @@ class Public::PostsController < ApplicationController
       @post.save_post_tags(tag_list)
       redirect_to public_post_path(@post.id)
     else
+      flash.now[:alert] = "投稿を保存できませんでした。入力内容を確認してください。"
       render :edit
     end
   end
