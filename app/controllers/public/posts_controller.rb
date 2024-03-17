@@ -38,8 +38,9 @@ class Public::PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
-    tag_list=params[:post][:name].split(',')
-    if @post.update(post_params)
+    tag_list = params[:post][:name].split(',')
+    @trip_id = params[:post][:trip_id]
+    if @post.update(post_params.merge(trip_id: @trip_id))
       @post.save_post_tags(tag_list)
       redirect_to public_post_path(@post.id)
     else
