@@ -34,7 +34,7 @@ Rails.application.routes.draw do
     #     put 'update_multiple'
     #   end
     # end
-    resources :posts, only: [:index, :show, :new, :create, :destroy] do
+    resources :posts, only: [:index, :show, :new, :create, :destroy, :edit, :update] do
       resources :comments, only: [:create, :destroy]
       resource :favorites, only: [:create, :destroy]
     end

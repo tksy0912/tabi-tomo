@@ -36,14 +36,13 @@ class Public::PostsController < ApplicationController
   end
 
   def update
-    @user = current_user
     @post = Post.find(params[:id])
     tag_list=params[:post][:name].split(',')
     if @post.update(post_params)
       @post.save_post_tags(tag_list)
       redirect_to public_post_path(@post.id)
     else
-      redirect_to request.referer
+      render :edit
     end
   end
 
@@ -60,6 +59,6 @@ class Public::PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :caption, :user_id, :trip_id, :post_image)
+    params.require(:post).permit(:title, :caption, :user_id, :trip_id, :post_image, :name)
   end
 end
