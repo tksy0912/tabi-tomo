@@ -50,9 +50,9 @@ class Public::PostsController < ApplicationController
   def search_tag
     #検索結果画面でもタグ一覧表示
     @tag_list = PostTag.all
-    　#検索されたタグを受け取る
+    #検索されたタグを受け取る
     @tag = PostTag.find(params[:post_tag_id])
-    　#検索されたタグに紐づく投稿を表示
+    #検索されたタグに紐づく投稿を表示
     @posts = @tag.posts
   end
 
