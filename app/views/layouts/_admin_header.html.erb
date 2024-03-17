@@ -14,7 +14,9 @@
             <% end %>
           </li>
           <li class="nav-item">
+            <%= link_to admin_posts_path, class: 'nav-link' do %>
               <button type="button" class="btn btn-outline-light"><i class="fa-solid fa-photo-film"></i> タイムライン</button>
+            <% end %>
           </li>
           <li class="nav-item">
             <%= link_to destroy_admin_session_path, method: :delete, class: 'nav-link' do %>

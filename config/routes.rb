@@ -47,9 +47,10 @@ Rails.application.routes.draw do
     patch "users/information" => "users#update"
   end
 
-  get "admin" => "admin/homes#top"
+  get "admin" => "admin/users#index"
   namespace :admin do
     resources :users, only: [:index, :show, :edit, :update]
+    resources :posts, only: [:index, :show]
     resources :comments, only: [:destroy]
   end
 
