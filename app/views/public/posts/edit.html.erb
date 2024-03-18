@@ -11,7 +11,7 @@
       </div>
     <% end %>
       <h2>投稿編集</h2>
-        <%= form_with(model: @post, url: public_post_path(@post.id), method: :patch) do |f| %>
+        <%= form_with(model: @post, url: public_post_path(@post, trip_id: @trip_id), method: :patch) do |f| %>
           <%= f.hidden_field :trip_id, value: params[:trip_id] %>
           <%= f.file_field :post_image, accept: "image/*", class: "w-100" %>
           <div class="input-group mb-3 mt-4">
