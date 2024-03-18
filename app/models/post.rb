@@ -53,4 +53,6 @@ class Post < ApplicationRecord
       self.post_tags << post_tag
     end
   end
+
+  attribute :name, :string
 end

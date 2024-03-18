@@ -8,7 +8,6 @@ class Public::PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.user_id = current_user.id
-      # 受け取った値を,で区切って配列にする
     tag_list = params[:post][:name].split(',')
     if @post.save
       @post.save_post_tags(tag_list)
@@ -25,27 +24,30 @@ class Public::PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    @trip_id = @post.trip_id
     @comment = Comment.new
     @post_tags = @post.post_tags
   end
 
-  def edit
-    @user = current_user
-    @post = Post.find(params[:id])
-    @tag_list = @post.post_tags.pluck(:name).join(',')
-  end
+  # def edit
+  #   @user = current_user
+  #   @post = Post.find(params[:id])
+  #   @trip_id = @post.trip_id
+  #   @tag_list = @post.post_tags.pluck(:name).join(',')
+  # end
 
-  def update
-    @user = current_user
-    @post = Post.find(params[:id])
-    tag_list=params[:post][:name].split(',')
-    if @post.update(post_params)
-      @post.save_post_tags(tag_list)
-      redirect_to public_post_path(@post.id)
-    else
-      redirect_to request.referer
-    end
-  end
+  # def update
+  #   @post = Post.find(params[:id])
+  #   tag_list = params[:post][:name].split(',')
+  #   @trip_id = params[:post][:trip_id]
+  #   if @post.update(post_params.merge(trip_id: @trip_id))
+  #     @post.save_post_tags(tag_list)
+  #     redirect_to public_post_path(@post.id)
+  #   else
+  #     flash.now[:alert] = "投稿を保存できませんでした。入力内容を確認してください。"
+  #     render :edit
+  #   end
+  # end
 
   def search_tag
     #検索結果画面でもタグ一覧表示
@@ -60,6 +62,6 @@ class Public::PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :caption, :user_id, :trip_id, :post_image)
+    params.require(:post).permit(:title, :caption, :user_id, :trip_id, :post_image, :name)
   end
 end
