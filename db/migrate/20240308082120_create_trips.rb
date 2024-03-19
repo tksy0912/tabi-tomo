@@ -4,8 +4,8 @@ class CreateTrips < ActiveRecord::Migration[6.1]
       t.integer :user_id
       t.integer :schedule_id
       t.string :title, null: false, default: ""
-      t.date :departure_date, null: false, default: ""
-      t.date :return_date, null: false, default: ""
+      t.date :departure_date, null: false
+      t.date :return_date, null: false
 
       t.timestamps
     end
