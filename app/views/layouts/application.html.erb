@@ -11,6 +11,16 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
+  <style>
+    body {
+      background-color: #e1f4f4;
+    }
+    
+    main {
+      padding: 20px;
+    }
+  </style>
+
   <body>
     <header>
       <% if request.fullpath.include? "/admin" %>
@@ -19,13 +29,13 @@
         <%= render 'layouts/public_header' %>
       <% end %>
     </header>
-    
+
     <main>
       <%= yield %>
     </main>
-    
+
     <footer>
-      
+
     </footer>
   </body>
 </html>

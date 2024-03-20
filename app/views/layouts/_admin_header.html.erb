@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark text-white pt-5 pb-4">
+<nav class="navbar navbar-expand-lg navbar-dark" style="background-color:#2c419e;">
   <div class="container">
     <a class="navbar-brand" href="/admin">TabiTomo</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
@@ -15,7 +15,7 @@
           </li>
           <li class="nav-item">
             <%= link_to admin_posts_path, class: 'nav-link' do %>
-              <button type="button" class="btn btn-outline-light"><i class="fa-solid fa-photo-film"></i> タイムライン</button>
+              <button type="button" class="btn btn-outline-light"><i class="fa-solid fa-photo-film"></i> 投稿一覧</button>
             <% end %>
           </li>
           <li class="nav-item">
@@ -26,7 +26,7 @@
         <% else %>
           <li class="nav-item">
             <%= link_to public_about_path, class: 'nav-link' do %>
-              <button type="button" class="btn btn-outline-light"><i class="fa-solid fa-link"></i> About</button>
+              <button type="button" class="btn btn-outline-light"><i class="fa-solid fa-link"></i> はじめに</button>
             <% end %>
           </li>
           <li class="nav-item">
