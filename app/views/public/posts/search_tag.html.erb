@@ -12,7 +12,7 @@
         <% @posts.each do |post| %>
           <div class="col-4">
             <div class="aspect-ratio-box">
-              <%= link_to public_post_path(post.id) do %>
+              <%= link_to public_post_path(post) do %>
                 <%= image_tag post.post_image, size: "50x50" %>
               <% end %>
             </div>
