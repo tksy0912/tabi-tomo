@@ -1,17 +1,12 @@
-<table>
-  <tr><%= image_tag user.get_profile_image, size:'100x100' %></tr>
-  <tr>
-	  <th>name</th>
-	  <th><%= user.name %></th>
-  </tr>
-  <tr>
-	  <th>introduction</th>
-	  <th><%= user.introduction %></th>
-  </tr>
-  <tr>
-	  <th></th>
-	  <th>
-      <%= link_to "Edit", users_information_edit_path, class: "btn btn-outline-secondary btn-block edit_user_#{user.id}" %>
-	   </th>
-  </tr>
-</table>
+<div class="d-flex justify-content-center"><%= image_tag user.get_profile_image, size:'150x150' %></div>
+
+<div class="card m-3">
+  <div class="card-header" style="background-color: blue;">
+    <h6><%= user.name %></h6>
+  </div>
+  <div class="card-body">
+    <h4 class="card-title">Special title treatment</h4>
+    <p class="card-text"><%= user.introduction %></p>
+  </div>
+</div>
+<%= link_to "プロフィール編集", users_information_edit_path, class: "btn btn-outline-info btn-block edit_user_#{user.id}" %>
