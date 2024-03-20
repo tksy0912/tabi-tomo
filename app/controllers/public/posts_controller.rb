@@ -29,6 +29,12 @@ class Public::PostsController < ApplicationController
     @post_tags = @post.post_tags
   end
 
+  def destroy
+    @post = Post.find(params[:id])
+    @post.destroy
+    redirect_to users_my_page_path
+  end
+
   # def edit
   #   @user = current_user
   #   @post = Post.find(params[:id])
