@@ -1,19 +1,16 @@
-<div class="container p-4">
-  <div class="row p-4">
-    <div class="col-md-8">
-      <h2 class="mb-4 text-center">search for "<%= @word %>"</h2>
+<div class="container">
+  <div class="row">
+    <div class="col m-3">
+      <h2 class="m-3"><strong>「<%= @word %>」</strong>の検索結果</h2>
+      <hr>
       <div class="row">
         <% @posts.each do |post| %>
-          <div class="col-4">
-            <div class="aspect-ratio-box">
-              <%= link_to public_post_path(post.id) do %>
-                <%= image_tag post.post_image, size: "50x50" %>
-              <% end %>
-            </div>
-            <div class="mt-3 text-left">
-              <b><%= post.title %></b>
-            </div>
+        <div class="col-4">
+          <div class="card">
+            <div class="card-body"><%= link_to post.title, public_post_path(post.id) %></div>
+            <img class="card-img-bottom"><%= image_tag post.get_post_image, size:'50×50' %>
           </div>
+        </div>
         <% end %>
       </div>
     </div>
