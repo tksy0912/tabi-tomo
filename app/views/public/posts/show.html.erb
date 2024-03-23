@@ -1,27 +1,38 @@
-<div class='container'>
-  <div class='row'>
-    <div class='col'>
-      <%= image_tag @post.get_post_image %>
-      <p>タイトル：<%= @post.title %></p>
-        <div class=<%= "favorite-" + @post.id.to_s %> >
-          <%= render "public/favorites/btn", post: @post %>
+<div class="container">
+  <div class="row">
+    <div class="col-8 m-3">
+      <div class="mb-3">
+        <%= link_to users_my_page_path(@post.user) do %>
+          <%= image_tag @post.user.get_profile_image, size: "100x100" %><br>
+        <% end %>
+      </div>
+      <div class="card">
+        <img class="card-img-top"><%= image_tag @post.get_post_image, size:'300x180' %>
+        <div class="card-body">
+          <h4 class="card-title"><%= @post.title %></h4>
+          <p><%= @post.created_at.strftime('%Y/%m/%d') %></p>
+          <!-- タグリスト -->
+          <% @post_tags.each do |tag| %>
+          <i class="fa-sharp fa-solid fa-tag"></i>
+            <%= link_to tag.name,public_search_tag_path(post_tag_id: tag.id) %>
+          <% end %>
+          <div class=<%= "favorite-" + @post.id.to_s %> >
+            <%= render "public/favorites/btn", post: @post %>
+          </div>
+          <p class="card-text"><%= @post.caption %></p>
+          <p><%= link_to '旅行プラン', public_trip_path(@post.trip), class: "btn btn-primary ms-3" %></p>
         </div>
+      </div>
 
-      <!-- タグリスト -->
-      <% @post_tags.each do |tag| %>
-      <i class="fa-sharp fa-solid fa-tag"></i>
-        <%= link_to tag.name,public_search_tag_path(post_tag_id: tag.id) %>
-      <% end %>
-
-      <p>説明：<%= @post.caption %></p>
-      <p>ユーザーネーム：<%= @post.user.name %></p>
-      <p>投稿日時：<%= @post.created_at.strftime('%Y/%m/%d') %></p>
-      <p><%= link_to '旅行プラン', public_trip_path(@post.trip), class: "btn btn-primary ms-3" %></p>
+      <div class="m-3">
       <% if @post.user == current_user %>
         <%= link_to "削除する", public_post_path(@post.id), method: :delete, class: "btn btn-danger ms-3" %>
       <% end %>
+      </div>
+
     </div>
-    <div class='col'>
+    <div class="col-3">
+      <h5 class="m-3">コメント一覧</h5>
       <%= render "public/comments/index", post: @post %>
       <%= render "public/comments/form", post: @post, comment: @comment %>
     </div>
