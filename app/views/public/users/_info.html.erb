@@ -1,11 +1,10 @@
 <div class="d-flex justify-content-center"><%= image_tag user.get_profile_image, size:'150x150' %></div>
 
 <div class="card m-3">
-  <div class="card-header" style="background-color: blue;">
-    <h6><%= user.name %></h6>
+  <div class="card-header" style="background-color: secondary;">
+    <b class="d-flex justify-content-center"><%= user.name %></b>
   </div>
   <div class="card-body">
-    <h4 class="card-title">Special title treatment</h4>
     <p class="card-text"><%= user.introduction %></p>
   </div>
 </div>

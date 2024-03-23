@@ -1,23 +1,26 @@
-<div class='container'>
-  <div class='row'>
-    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
-    <h2>User info</h2>
-    <%= form_with(model: @user, url: users_information_path, local: true, method: :patch) do |f| %>
-      <div class="form-group">
-        <%= f.label :image %>
-        <%= f.file_field :profile_image, class: "form-control-file user_image", accept: 'image/*' %>
+<div class="container">
+  <div class="row m-5">
+    <div class="mx-auto">
+      <div class="col m-5">
+        <h1>プロフィール編集</h1>
       </div>
-      <div class="form-group">
-        <%= f.label :name %>
-        <%= f.text_field :name, class: "form-control name" %>
-      </div>
-      <div class="form-group">
-        <%= f.label :introduction %>
-        <%= f.text_area :introduction, class: "form-control introduction" %>
-      </div>
-      <div class="form-group">
-        <%= f.submit class: 'btn btn-secondary' %>
-      </div>
-    <% end %>
+      <%= form_with(model: @user, url: users_information_path, local: true, method: :patch) do |f| %>
+        <div class="form-group">
+          <%= f.label 'アイコン' %>
+          <%= f.file_field :profile_image, class: "form-control-file user_image", accept: 'image/*' %>
+        </div>
+        <div class="form-group">
+          <%= f.label 'ユーザーネーム' %>
+          <%= f.text_field :name, class: "form-control name", size: "50x20" %>
+        </div>
+        <div class="form-group">
+          <%= f.label 'ユーザー紹介' %>
+          <%= f.text_area :introduction, class: "form-control introduction" %>
+        </div>
+        <div class="actions col mx-auto m-5">
+          <%= f.submit "プロフィール更新", class: "btn btn-info btn-block" %>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>

@@ -1,23 +1,29 @@
-<div class='container'>
-  <div class='row'>
-    <div class='col'>
-      <h2><%= @trip.title %></h2>
+<div class="container">
+  <div class="row">
+    <div class="col-8 m-3">
+      <h2 class="m-3"><%= @trip.title %></h2>
         <table class="table table-borderless">
           <tr>
             <td class="bg-light col-lg-2">期間</td>
             <td><%= @trip.start_time.to_date %> ~ <%= @trip.end_time.to_date %></td>
           </tr>
         </table>
-        <%= link_to '編集', edit_public_trip_path(@trip), class: "btn btn-success edit_trip_#{@trip.id}" %>
-        <h3>Schedules</h3>
+        <div>
+          <%= link_to 'タイトル編集', edit_public_trip_path(@trip), class: "btn btn-success edit_trip_#{@trip.id}" %>
+        </div>
+        <h4 class="m-3">Schedules</h4>
         <table>
           <% @schedules.each do |schedule| %>
             <%= render 'public/schedules/show', schedule: schedule %>
           <% end %>
         </table>
-        <%= link_to '編集', schedules_edit_public_trip_path(@trip.id), class: "btn btn-success" %>
-        <%= link_to '旅行削除', public_trip_path(@trip.id), method: :delete, class: "btn btn-danger" %>
-        <%= link_to '投稿', new_public_post_path(trip_id: @trip.id), class: "btn btn-primary" %>
+        <div class="mt-2">
+          <%= link_to 'スケジュール編集', schedules_edit_public_trip_path(@trip.id), class: "btn btn-success" %>
+        </div>
+    </div>
+    <div class="col-3 m-3  align-self-end">
+      <%= link_to '旅行削除', public_trip_path(@trip.id), method: :delete, class: "btn btn-danger btn-block" %>
+      <%= link_to '投稿', new_public_post_path(trip_id: @trip.id), class: "btn btn-primary btn-block" %>
     </div>
   </div>
 </div>

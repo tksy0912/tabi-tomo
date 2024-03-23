@@ -1,17 +1,24 @@
-<div class='container'>
-  <div class='row'>
-    <div class='col-md-6 offset-md-3'>
-      <h2><%= @trip.title %></h2>
-      <%= form_with(model: @trip, url: schedules_update_public_trip_path(@trip)) do |f| %>
-        <%= link_to_add_association 'add_schedule', f, :schedules, data: { association_insertion_node: '#schedule-forms', association_insertion_method: 'append' } %>
+<div class="container">
+  <div class="row">
+    <div class="mx-auto">
+      <div class="col m-3">
+        <h2 class="m-3">スケジュール編集</h2>
+        <%= form_with(model: @trip, url: schedules_update_public_trip_path(@trip)) do |f| %>
+          <%= link_to_add_association '＋', f, :schedules, data: { association_insertion_node: '#schedule-forms', association_insertion_method: 'append' }, class: "btn btn-outline-primary" %>
 
-        <div id="schedule-forms">
-          <%= f.fields_for :schedules do |s| %>
-           <%= render 'schedule_fields', f: s %>
-          <% end %>
+          <div id="schedule-forms">
+            <%= f.fields_for :schedules do |s| %>
+             <%= render 'schedule_fields', f: s %>
+            <% end %>
+          </div>
+          <div class="actions">
+            <%= f.submit "一括更新", class: "btn btn-info btn-block" %>
+          </div>
+        <% end %>
+        <div class="mt-5">
+          <%= link_to '◀Back', public_trip_path(@trip), class: "btn btn-outline-primary ms-3" %>
         </div>
-        <%= f.submit "一括更新" %>
-      <% end %>
+      </div>
     </div>
   </div>
 </div>
