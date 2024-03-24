@@ -3,6 +3,14 @@
     <div class="col m-3">
     <h2 class="m-3">新規投稿</h2>
     <hr>
+      <% if @post.errors.any? %>
+        <%= @post.errors.count %>件のエラーが発生しました
+        <ul>
+          <% @post.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      <% end %>
       <%= form_with(model: @post, url: public_posts_path) do |f| %>
         <%= f.hidden_field :trip_id, value: params[:trip_id] %>
         <%= f.file_field :post_image, accept: "image/*", class: "w-100" %>

@@ -6,7 +6,7 @@
   <div class="row">
     <div class="col-4">
     <%= render 'info', user: @user %>
-    <%= link_to "プロフィール編集", users_information_edit_path, class: "btn btn-outline-info btn-block edit_user_#{user.id}" %>
+    <%= link_to "プロフィール編集", users_information_edit_path, class: "btn btn-outline-info btn-block" %>
 
     <% if @user == current_user %>
       <h2 class="mt-5">投稿</h2>

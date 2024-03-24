@@ -1,27 +1,28 @@
 <div class="nested-fields">
   <div class="form-group">
   </div>
-  <div class="field">
-    <%= f.label '日付' %>
-    <%= f.date_field :date %>
-  </div>
-  <div class="field">
-    <%= f.label '目的地' %>
-    <%= f.text_field :destination %>
-  </div>
-  <div class="field">
-    <%= f.label '移動手段' %>
-    <%= f.text_field :transportation %>
-  </div>
-  <div class="field">
-    <%= f.label '宿泊' %>
-    <%= f.check_box :is_accommodation %>
-  </div>
-  <div class="field">
-    <%= f.label '宿泊先' %>
-    <%= f.text_field :accommodation_name %>
-  </div>
-
+  <table class="table table-borderless">
+    <tr>
+      <th><%= f.label '日付' %></th>
+      <td><%= f.date_field :date %></td>
+    </tr>
+    <tr>
+      <th><%= f.label '目的地' %></th>
+      <td><%= f.text_field :destination %></td>
+    </tr>
+    <tr>
+      <th><%= f.label '移動手段' %></th>
+      <td><%= f.text_field :transportation %></td>
+    </tr>
+    <tr>
+      <th><%= f.label '宿泊' %></th>
+      <td><%= f.check_box :is_accommodation %></td>
+    </tr>
+    <tr>
+      <th><%= f.label '宿泊先' %></th>
+      <td><%= f.text_field :accommodation_name %></td>
+    </tr>
+  </table>
   <%= link_to_remove_association "削除", f, class: "btn btn-outline-danger" %>
   <hr>
 </div>
