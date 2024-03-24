@@ -35,7 +35,10 @@
       <h5 class="m-3">コメント一覧</h5>
       <hr>
       <%= render "public/comments/index", post: @post %>
-      <%= render "public/comments/form", post: @post, comment: @comment %>
+      <div class="mt-3">
+      <hr>
+        <%= render "public/comments/form", post: @post, comment: @comment %>
+      </div>
     </div>
   </div>
 </div>
