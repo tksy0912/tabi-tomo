@@ -9,7 +9,7 @@
       <div class="card">
         <img class="card-img-top"><%= image_tag @post.get_post_image, size:'300x180' %>
         <div class="card-body">
-          <h4 class="card-title"><%= @post.title %></h4>
+          <h4 class="card-title font-weight-bold"><%= @post.title %></h4>
           <p><%= @post.created_at.strftime('%Y/%m/%d') %></p>
           <!-- タグリスト -->
           <% @post_tags.each do |tag| %>
@@ -33,6 +33,7 @@
     </div>
     <div class="col-3">
       <h5 class="m-3">コメント一覧</h5>
+      <hr>
       <%= render "public/comments/index", post: @post %>
       <%= render "public/comments/form", post: @post, comment: @comment %>
     </div>
