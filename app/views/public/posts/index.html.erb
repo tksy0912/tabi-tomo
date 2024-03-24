@@ -1,27 +1,25 @@
-<div class='container'>
-  <div class='row'>
-    <div class='col'>
-      <!--タグリスト-->
-    <% @tag_list.each do |list|%>
-      <i class="fa-sharp fa-solid fa-tag"></i>
-      <%=link_to list.name, public_search_tag_path(post_tag_id: list.id) %>
-      <%="(#{list.posts.count})" %>
-    <% end %>
-
-    <table class="table table-borderless">
-      <thead style="background-color: #e9ecef;">
-        <tr>
-          <th>タイトル</th>
-        </tr>
-      </thead>
-      <tbody>
-      <% @posts.each do |post| %>
-        <tr>
-          <td class="align-middle"><%= link_to post.title, public_post_path(post.id) %></td>
-        </tr>
+<div class="container">
+  <div class="row">
+    <div class="col m-3">
+      <h2 class="m-3">思い出一覧</h2>
+        <!--タグリスト-->
+      <% @tag_list.each do |list|%>
+        <i class="fa-sharp fa-solid fa-tag"></i>
+        <%=link_to list.name, public_search_tag_path(post_tag_id: list.id) %>
+        <%="(#{list.posts.count})" %>
       <% end %>
-      </tbody>
-    </table>
+      <hr>
+        <div class="row">
+          <% @posts.each do |post| %>
+          <div class="col-4">
+            <div class="card">
+              <div class="card-body"><%= link_to post.title, public_post_path(post.id) %></div>
+              <img class="card-img-bottom"><%= image_tag post.get_post_image, size:'50×50' %>
+            </div>
+          </div>
+          <% end %>
+        </div>
+      </div>
     </div>
   </div>
 </div>

@@ -1,22 +1,18 @@
-<div class='container'>
-  <div class='row'>
-    <div class='col'>
-      <table class="table table-borderless">
-        <thead style="background-color: #e9ecef;">
-          <tr>
-            <th>タイトル</th>
-          </tr>
-        </thead>
-        <tbody>
+<div class="container">
+  <div class="row">
+    <div class="col m-3">
+      <h2 class="m-3">お気に入り一覧</h2>
+      <hr>
+        <div class="row">
           <% @favorite_posts.each do |post| %>
-          <tr>
-            <td class="align-middle">
-              <%= link_to post.title, public_post_path(post.id) %>
-            </td>
-          </tr>
+          <div class="col-4">
+            <div class="card">
+              <div class="card-body"><%= link_to post.title, public_post_path(post.id) %></div>
+              <img class="card-img-bottom"><%= image_tag post.get_post_image, size:'50×50' %>
+            </div>
+          </div>
           <% end %>
-        </tbody>
-      </table>
+        </div>
     </div>
   </div>
 </div>

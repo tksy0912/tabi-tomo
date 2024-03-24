@@ -5,7 +5,6 @@
       <td>
         <%= link_to users_my_page_path(comment.user) do %>
           <%= image_tag comment.user.get_profile_image, size: "50x50" %><br>
-          <%= comment.user.name %>
         <% end %>
       </td>
       <td><%= comment.comment %></td>

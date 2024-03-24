@@ -1,52 +1,54 @@
-<nav class="nnavbar navbar-expand-lg navbar-dark" style="background-color:#2c419e;">
+<nav class="nnavbar navbar-expand-lg navbar-dark" style="background: linear-gradient(#20beea, #aeeaef);">
   <div class="container">
-    <a class="navbar-brand" href="/">TabiTomo</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
-                      aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+                    aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <a class="navbar-brand align-content-center"><%= link_to image_tag("logo.png", :size =>'300x105'), "/" %></a>
         <ul class="navbar-nav ml-auto">
         <% if user_signed_in? %>
           <li class="nav-item">
             <%= link_to users_my_page_path(current_user), class: 'nav-link' do %>
-              <button type="button" class="btn btn-outline-light"><i class="fa-solid fa-user"></i> マイページ</button>
+              <button type="button" class="btn btn-outline-light rounded-pill"><i class="fa-solid fa-user"></i> マイページ</button>
             <% end %>
           </li>
           <li class="nav-item">
             <%= link_to public_posts_path(current_user), class: 'nav-link' do %>
-              <button type="button" class="btn btn-outline-light"><i class="fa-solid fa-photo-film"></i> みんなの投稿</button>
+              <button type="button" class="btn btn-outline-light rounded-pill"><i class="fa-solid fa-photo-film"></i> みんなの投稿</button>
             <% end %>
           </li>
           <li class="nav-item">
             <%= link_to favorites_public_user_path(current_user), class: 'nav-link' do %>
-              <button type="button" class="btn btn-outline-light"><i class="fa-solid fa-heart"></i> お気に入り</button>
+              <button type="button" class="btn btn-outline-light rounded-pill"><i class="fa-solid fa-heart"></i> お気に入り</button>
             <% end %>
           </li>
           <li class="nav-item">
             <%= link_to destroy_user_session_path, method: :delete, class: 'nav-link' do %>
-              <button type="button" class="btn btn-outline-light"><i class="fa-solid fa-right-from-bracket"></i> ログアウト</button>
+              <button type="button" class="btn btn-outline-light rounded-pill"><i class="fa-solid fa-right-from-bracket"></i> ログアウト</button>
             <% end %>
           </li>
         <% else %>
           <li class="nav-item">
             <%= link_to public_about_path, class: 'nav-link' do %>
-              <button type="button" class="btn btn-outline-light"><i class="fa-solid fa-link"></i> はじめに</button>
+              <button type="button" class="btn btn-outline-light rounded-pill"><i class="fa-solid fa-link"></i> はじめに</button>
             <% end %>
           </li>
           <li class="nav-item">
             <%= link_to new_user_registration_path, class: 'nav-link' do %>
-              <button type="button" class="btn btn-outline-light"><i class="fa-solid fa-user-plus"></i> 新規登録</button>
+              <button type="button" class="btn btn-outline-light rounded-pill"><i class="fa-solid fa-user-plus"></i> 新規登録</button>
             <% end %>
           </li>
           <li class="nav-item">
             <%= link_to user_session_path, class: 'nav-link' do %>
-              <button type="button" class="btn btn-outline-light"><i class="fa-solid fa-right-to-bracket"></i> ログイン</button>
+              <button type="button" class="btn btn-outline-light rounded-pill"><i class="fa-solid fa-right-to-bracket"></i> ログイン</button>
             <% end %>
           </li>
         <% end %>
         </ul>
+        <div class="d-flex flex-row-reverse">
+          <%= render "public/searches/search" %>
+        </div>
       </div>
-    <%= render "public/searches/search" %>
   </div>
 </nav>

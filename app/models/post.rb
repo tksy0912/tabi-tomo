@@ -8,6 +8,10 @@ class Post < ApplicationRecord
 
   has_one_attached :post_image
 
+  validates :title, presence: true
+  validates :caption, presence: true
+  validates :post_image, presence: true
+
   def get_post_image
     (post_image.attached?) ? post_image : 'default-image.jpg'
   end
