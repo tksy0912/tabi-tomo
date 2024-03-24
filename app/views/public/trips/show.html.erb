@@ -10,7 +10,9 @@
           </tr>
         </table>
         <div>
-          <%= link_to 'タイトル編集', edit_public_trip_path(@trip), class: "btn btn-success edit_trip_#{@trip.id}" %>
+          <% if @trip.user == current_user %>
+            <%= link_to 'タイトル編集', edit_public_trip_path(@trip), class: "btn btn-success edit_trip_#{@trip.id}" %>
+          <% end %>
         </div>
         <h4 class="m-3">Schedules</h4>
         <table>
@@ -19,12 +21,16 @@
           <% end %>
         </table>
         <div class="mt-2">
-          <%= link_to 'スケジュール編集', schedules_edit_public_trip_path(@trip.id), class: "btn btn-success" %>
+          <% if @trip.user == current_user %>
+            <%= link_to 'スケジュール編集', schedules_edit_public_trip_path(@trip.id), class: "btn btn-success" %>
+          <% end %>
         </div>
     </div>
     <div class="col-3 m-3  align-self-end">
-      <%= link_to '旅行削除', public_trip_path(@trip.id), method: :delete, class: "btn btn-danger btn-block" %>
-      <%= link_to '投稿', new_public_post_path(trip_id: @trip.id), class: "btn btn-primary btn-block" %>
+      <% if @trip.user == current_user %>
+        <%= link_to '旅行削除', public_trip_path(@trip.id), method: :delete, class: "btn btn-danger btn-block" %>
+        <%= link_to '投稿', new_public_post_path(trip_id: @trip.id), class: "btn btn-primary btn-block" %>
+      <% end %>
     </div>
   </div>
 </div>
