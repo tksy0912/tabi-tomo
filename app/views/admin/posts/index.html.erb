@@ -1,19 +1,19 @@
 <div class="container">
   <div class="row">
     <div class="col m-3">
-      <h2 class="m-3">投稿一覧</h2>
-      <hr>
-        <div class="row">
-          <% @posts.each do |post| %>
-          <div class="col-4">
-            <div class="card">
-              <div class="card-body"><%= link_to post.title, admin_post_path(post.id) %></div>
-              <img class="card-img-bottom"><%= image_tag post.get_post_image, size:'50×50' %>
-            </div>
+    <h2 class="m-3">投稿一覧</h2>
+    <hr>
+      <div class="row">
+        <% @posts.each do |post| %>
+        <div class="col-2 m-2">
+          <div class="card">
+            <div class="card-body"><%= link_to post.title, admin_post_path(post.id) %></div>
+            <img class="card-img-bottom"><%= image_tag post.get_post_image, size:'50×50' %>
           </div>
-          <% end %>
         </div>
+        <% end %>
       </div>
+      <%= paginate @posts, theme: 'twitter-bootstrap-4' %>
     </div>
   </div>
 </div>
