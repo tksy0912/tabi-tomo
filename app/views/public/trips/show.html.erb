@@ -5,13 +5,13 @@
       <hr>
         <table class="table table-borderless">
           <tr>
-            <td class="bg-light col-lg-2">期間</td>
+            <th class="col-lg-2" style="background-color: #20beea;">日程</th>
             <td><%= @trip.start_time.to_date %> ~ <%= @trip.end_time.to_date %></td>
           </tr>
         </table>
         <div>
           <% if @trip.user == current_user %>
-            <%= link_to 'タイトル編集', edit_public_trip_path(@trip), class: "btn btn-success edit_trip_#{@trip.id}" %>
+            <%= link_to 'タイトル編集', edit_public_trip_path(@trip), class: "btn btn-outline-info" %>
           <% end %>
         </div>
         <h4 class="m-3">Schedules</h4>
@@ -22,14 +22,14 @@
         </table>
         <div class="mt-2">
           <% if @trip.user == current_user %>
-            <%= link_to 'スケジュール編集', schedules_edit_public_trip_path(@trip.id), class: "btn btn-success" %>
+            <%= link_to 'スケジュール編集', schedules_edit_public_trip_path(@trip.id), class: "btn btn-outline-info" %>
           <% end %>
         </div>
     </div>
     <div class="col-3 m-3  align-self-end">
       <% if @trip.user == current_user %>
-        <%= link_to '旅行削除', public_trip_path(@trip.id), method: :delete, class: "btn btn-danger btn-block" %>
-        <%= link_to '投稿', new_public_post_path(trip_id: @trip.id), class: "btn btn-primary btn-block" %>
+        <div class="mb-3"><%= link_to 'キャンセル', public_trip_path(@trip.id), method: :delete, class: "btn btn-danger btn-block rounded-pill" %></div>
+        <%= link_to '思い出投稿', new_public_post_path(trip_id: @trip.id), class: "btn btn-primary btn-block rounded-pill" %>
       <% end %>
     </div>
   </div>

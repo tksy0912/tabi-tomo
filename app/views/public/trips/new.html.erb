@@ -14,13 +14,11 @@
       <%= form_with(model: @trip, url: public_trips_path) do |f| %>
       <table class="table table-borderless">
         <tr>
-          <th><%= f.label "タイトル" %></th>
-          <td></td>
+          <th class="col-lg-2" style="background-color: #20beea;"><%= f.label "タイトル" %></th>
           <td><%= f.text_field :title %></td>
         </tr>
         <tr>
-          <th><%= f.label "日程" %></th>
-          <td></td>
+          <th class="col-lg-2" style="background-color: #20beea;"><%= f.label "日程" %></th>
           <td>
             <%= f.date_field :start_time %>
               ～

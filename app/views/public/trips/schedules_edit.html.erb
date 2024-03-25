@@ -2,8 +2,9 @@
   <div class="row">
     <div class="col m-3">
       <h2 class="m-3">スケジュール編集</h2>
+      <hr>
       <%= form_with(model: @trip, url: schedules_update_public_trip_path(@trip)) do |f| %>
-        <%= link_to_add_association '＋', f, :schedules, data: { association_insertion_node: '#schedule-forms', association_insertion_method: 'append' }, class: "btn btn-outline-primary rounded-pill" %>
+        <div class="mb-3"><%= link_to_add_association '＋', f, :schedules, data: { association_insertion_node: '#schedule-forms', association_insertion_method: 'append' }, class: "btn btn-outline-primary rounded-pill" %></div>
 
         <div id="schedule-forms">
           <%= f.fields_for :schedules do |s| %>

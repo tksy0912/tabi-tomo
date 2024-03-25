@@ -1,17 +1,17 @@
   <tr>
-    <td class="bg-light col-lg-2">日付</td>
+    <th class="col-lg-2" style="background-color: #aeeaef;">日付</th>
     <td class="text p-2"><%= schedule.date %></td>
   </tr>
   <tr>
-    <td class="bg-light col-lg-2">行先</td>
+    <th class="col-lg-2" style="background-color: #aeeaef;">行先</th>
     <td class="text p-2"><%= schedule.destination %></td>
   </tr>
   <tr>
-    <td class="bg-light col-lg-2">移動手段</td>
+    <th class="col-lg-2" style="background-color: #aeeaef;">移動手段</th>
     <td class="text p-2"><%= schedule.transportation %></td>
   </tr>
   <tr>
-    <td class="bg-light col-lg-2">宿泊</td>
+    <th class="col-lg-2" style="background-color: #aeeaef;">宿泊</th>
     <% if schedule.is_accommodation %>
       <td class="text p-2">あり</td>
     <% else %>
@@ -19,7 +19,7 @@
     <% end %>
   </tr>
   <tr>
-    <td class="bg-light col-lg-2">宿泊先</td>
+    <th class="col-lg-2" style="background-color: #aeeaef;">宿泊先</th>
     <td class="text p-2">
     <% if schedule.is_accommodation %>
       <%= schedule.accommodation_name %>

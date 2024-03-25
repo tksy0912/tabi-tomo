@@ -19,7 +19,8 @@
             <%= link_to users_my_page_path(@post.user) do %>
               <%= image_tag @post.user.get_profile_image, size: "100x100", class: 'rounded-circle' %>
             <% end %>
-            <%= link_to '旅行プラン', public_trip_path(@post.trip), class: "btn btn-primary ms-3" %></p>
+            <%= link_to '旅行プラン', public_trip_path(@post.trip), class: "btn btn-primary ms-3" %>
+          </p>
         </div>
       </div>
 
