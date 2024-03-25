@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   namespace :public do
     get "home/top" => "homes#top"
     get "about" => "homes#about"
-    resources :users, only: [:new, :create, :show, :edit, :update] do
+    resources :users, only: [:new, :create, :edit, :update] do
       member do
         get :favorites
       end
@@ -42,7 +42,7 @@ Rails.application.routes.draw do
   patch '/public/trips/:id/edit', to: 'public/trips#update', as: 'update_public_trip'
 
   scope module: :public do
-    get "users/my_page" => "users#show"
+    get "users/my_page/:id" => "users#show", as: "users_my_page"
     get "users/information/edit" => "users#edit"
     patch "users/information" => "users#update"
   end
