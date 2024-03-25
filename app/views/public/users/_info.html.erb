@@ -1,7 +1,9 @@
-<div class="d-flex justify-content-center"><%= image_tag user.get_profile_image, size:'150x150' %></div>
+<div class="d-flex justify-content-center">
+  <%= image_tag user.get_profile_image, size: '150x150', class: 'rounded-circle' %>
+</div>
 
 <div class="card m-3">
-  <div class="card-header" style="background-color: secondary;">
+  <div class="card-header" style="background-color: #aeeaef;">
     <b class="d-flex justify-content-center"><%= user.name %></b>
   </div>
   <div class="card-body">

@@ -1,14 +1,14 @@
 <div class="container">
   <div class="row">
     <div class="col m-3">
-      <h2 class="m-3">会員一覧</h2>
+      <h2 class="m-3">ユーザー一覧</h2>
       <hr>
     </div>
   </div>
   <div class="row">
     <div class="col-10 mx-auto">
       <table class="table table-borderless">
-        <thead style="background-color: #e9ecef;">
+        <thead style="background-color: #5c8cd1;">
           <tr>
             <th></th>
             <th>会員ID</th>
@@ -19,7 +19,7 @@
         <tbody>
         <% @users.each do |user| %>
           <tr>
-            <td class="d-flex justify-content-center"><%= image_tag user.get_profile_image, size:'100x100' %></td>
+            <td class="d-flex justify-content-center"><%= image_tag user.get_profile_image, size:'100x100', class: 'rounded-circle' %></td>
             <td class="align-middle"><%= user.id %></td>
             <td class="align-middle"><%=link_to user.name, admin_user_path(user.id) %></td>
             <% if user.is_active == true %><!--customerのステータスが有効の時-->
@@ -31,6 +31,7 @@
         <% end %>
         </tbody>
       </table>
+      <%= paginate @users, theme: 'twitter-bootstrap-4' %>
     </div>
   </div>
 </div>

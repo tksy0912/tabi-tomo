@@ -10,38 +10,38 @@
         <% if user_signed_in? %>
           <li class="nav-item">
             <%= link_to users_my_page_path(current_user), class: 'nav-link' do %>
-              <button type="button" class="btn btn-outline-light rounded-pill"><i class="fa-solid fa-user"></i> マイページ</button>
+              <button type="button" class="btn btn-outline-light rounded-pill"><i class="fa-solid fa-user"></i><h6>マイページ</h6></button>
             <% end %>
           </li>
           <li class="nav-item">
             <%= link_to public_posts_path(current_user), class: 'nav-link' do %>
-              <button type="button" class="btn btn-outline-light rounded-pill"><i class="fa-solid fa-photo-film"></i> みんなの投稿</button>
+              <button type="button" class="btn btn-outline-light rounded-pill"><i class="fa-solid fa-photo-film"></i><h6>皆の思い出</h6></button>
             <% end %>
           </li>
           <li class="nav-item">
             <%= link_to favorites_public_user_path(current_user), class: 'nav-link' do %>
-              <button type="button" class="btn btn-outline-light rounded-pill"><i class="fa-solid fa-heart"></i> お気に入り</button>
+              <button type="button" class="btn btn-outline-light rounded-pill"><i class="fa-solid fa-heart"></i><h6>お気に入り</h6></button>
             <% end %>
           </li>
           <li class="nav-item">
             <%= link_to destroy_user_session_path, method: :delete, class: 'nav-link' do %>
-              <button type="button" class="btn btn-outline-light rounded-pill"><i class="fa-solid fa-right-from-bracket"></i> ログアウト</button>
+              <button type="button" class="btn btn-outline-light rounded-pill"><i class="fa-solid fa-right-from-bracket"></i><h6>ログアウト</h6></button>
             <% end %>
           </li>
         <% else %>
           <li class="nav-item">
             <%= link_to public_about_path, class: 'nav-link' do %>
-              <button type="button" class="btn btn-outline-light rounded-pill"><i class="fa-solid fa-link"></i> はじめに</button>
+              <button type="button" class="btn btn-outline-light rounded-pill"><i class="fa-solid fa-link"></i><h6>はじめに</h6></button>
             <% end %>
           </li>
           <li class="nav-item">
             <%= link_to new_user_registration_path, class: 'nav-link' do %>
-              <button type="button" class="btn btn-outline-light rounded-pill"><i class="fa-solid fa-user-plus"></i> 新規登録</button>
+              <button type="button" class="btn btn-outline-light rounded-pill"><i class="fa-solid fa-user-plus"></i><h6>新規登録</h6></button>
             <% end %>
           </li>
           <li class="nav-item">
             <%= link_to user_session_path, class: 'nav-link' do %>
-              <button type="button" class="btn btn-outline-light rounded-pill"><i class="fa-solid fa-right-to-bracket"></i> ログイン</button>
+              <button type="button" class="btn btn-outline-light rounded-pill"><i class="fa-solid fa-right-to-bracket"></i><h6>ログイン</h6></button>
             <% end %>
           </li>
         <% end %>

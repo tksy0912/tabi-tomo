@@ -2,7 +2,7 @@ class Public::UsersController < ApplicationController
   def show
     @user = current_user
     @trips = @user.trips
-    @posts = @user.posts
+    @posts = @user.posts.page(params[:page]).per(5)
   end
 
   def edit
