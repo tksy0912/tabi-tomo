@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-8 m-3">
+    <div class="col-7 mt-5">
       <div class="card">
         <img class="card-img-top"><%= image_tag @post.get_post_image %>
         <div class="card-body">
@@ -31,8 +31,8 @@
       </div>
 
     </div>
-    <div class="col-3">
-      <h5 class="m-3">コメント一覧</h5>
+    <div class="col-md-4 offset-md-1">
+      <h4 class="mt-5">コメント一覧</h4>
       <hr>
       <%= render "public/comments/index", post: @post %>
       <div class="mt-3">
