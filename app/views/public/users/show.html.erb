@@ -15,7 +15,7 @@
     <div class="col-md-7 offset-md-1">
     <!-- ログインユーザーならカレンダーを表示 -->
     <% if @user == current_user %>
-      <h2>My 旅</h2>
+      <h2 class="m-2">My 旅</h2>
       <div class="d-flex flex-row-reverse">
         <%= link_to "▶New Trip！", new_public_trip_path, class: "btn btn-outline-info" %>
       </div>
