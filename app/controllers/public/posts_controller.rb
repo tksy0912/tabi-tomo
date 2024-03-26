@@ -41,7 +41,7 @@ class Public::PostsController < ApplicationController
     #検索されたタグを受け取る
     @tag = PostTag.find(params[:post_tag_id])
     #検索されたタグに紐づく投稿を表示
-    @posts = @tag.posts
+    @posts = @tag.posts.page(params[:page]).per(10)
   end
 
 

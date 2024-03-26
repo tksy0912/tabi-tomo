@@ -1,14 +1,13 @@
 <div class="container">
   <div class="row m-4">
-    <h1>マイページ</h1>
+    <h1><%= @user.name %>さんのマイページ</h1>
   </div>
   <hr>
   <div class="row">
     <div class="col-4">
     <%= render 'info', user: @user %>
-    <%= link_to "プロフィール編集", users_information_edit_path, class: "btn btn-outline-info btn-block" %>
-
     <% if @user == current_user %>
+      <%= link_to "プロフィール編集", users_information_edit_path, class: "btn btn-outline-info btn-block" %>
       <%= render 'public/posts/list', posts: @posts %>
     <% end %>
     </div>
