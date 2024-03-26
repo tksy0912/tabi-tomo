@@ -6,11 +6,11 @@
     </tr>
     <tr>
       <th class="col-lg-2" style="background-color: #aeeaef;"><%= f.label '目的地' %></th>
-      <td><%= f.text_field :destination %></td>
+      <td><%= f.text_field :destination, size: "50x20" %></td>
     </tr>
     <tr>
       <th class="col-lg-2" style="background-color: #aeeaef;"><%= f.label '移動手段' %></th>
-      <td><%= f.text_field :transportation %></td>
+      <td><%= f.text_field :transportation, size: "50x20" %></td>
     </tr>
     <tr>
       <th class="col-lg-2" style="background-color: #aeeaef;"><%= f.label '宿泊' %></th>
@@ -18,7 +18,7 @@
     </tr>
     <tr>
       <th class="col-lg-2" style="background-color: #aeeaef;"><%= f.label '宿泊先' %></th>
-      <td><%= f.text_field :accommodation_name %></td>
+      <td><%= f.text_field :accommodation_name, size: "50x20" %></td>
     </tr>
   </table>
   <%= link_to_remove_association "削除", f, class: "btn btn-outline-danger" %>

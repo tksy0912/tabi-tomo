@@ -10,33 +10,28 @@
         <% if admin_signed_in? %>
           <li class="nav-item">
             <%= link_to admin_users_path, class: 'nav-link' do %>
-              <button type="button" class="btn btn-outline-light rounded-pill"><i class="fa-solid fa-users"></i><h6>ユーザー</h6></button>
+              <button type="button" class="btn btn-outline-light rounded-pill"><i class="fa-solid fa-users"></i><br>ユーザー</button>
             <% end %>
           </li>
           <li class="nav-item">
             <%= link_to admin_posts_path, class: 'nav-link' do %>
-              <button type="button" class="btn btn-outline-light rounded-pill"><i class="fa-solid fa-photo-film"></i><h6>投稿一覧</h6></button>
+              <button type="button" class="btn btn-outline-light rounded-pill"><i class="fa-solid fa-photo-film"></i><br>投稿一覧</button>
             <% end %>
           </li>
           <li class="nav-item">
             <%= link_to destroy_admin_session_path, method: :delete, class: 'nav-link' do %>
-              <button type="button" class="btn btn-outline-light rounded-pill"><i class="fa-solid fa-right-from-bracket"></i><h6>ログアウト</h6></button>
+              <button type="button" class="btn btn-outline-light rounded-pill"><i class="fa-solid fa-right-from-bracket"></i><br>ログアウト</button>
             <% end %>
           </li>
         <% else %>
           <li class="nav-item">
-            <%= link_to public_about_path, class: 'nav-link' do %>
-              <button type="button" class="btn btn-outline-light rounded-pill"><i class="fa-solid fa-link"></i><h6>はじめに</h6></button>
-            <% end %>
-          </li>
-          <li class="nav-item">
             <%= link_to new_user_registration_path, class: 'nav-link' do %>
-              <button type="button" class="btn btn-outline-light rounded-pill"><i class="fa-solid fa-user-plus"></i><h6>新規登録</h6></button>
+              <button type="button" class="btn btn-outline-light rounded-pill"><i class="fa-solid fa-user-plus"></i><br>新規登録</button>
             <% end %>
           </li>
           <li class="nav-item">
             <%= link_to admin_session_path, class: 'nav-link' do %>
-              <button type="button" class="btn btn-outline-light rounded-pill"><i class="fa-solid fa-right-to-bracket"></i><h6>ログイン</h6></button>
+              <button type="button" class="btn btn-outline-light rounded-pill"><i class="fa-solid fa-right-to-bracket"></i><br>ログイン</button>
             <% end %>
           </li>
         <% end %>

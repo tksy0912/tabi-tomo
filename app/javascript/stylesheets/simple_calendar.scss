@@ -1,6 +1,6 @@
 .simple-calendar {
   .day {
-    background: #fff9ee;
+    background: #ffffff;
   }
   .wday-0 {
     background: #ffeaea;
@@ -16,17 +16,20 @@
     color: #5984dc;
   }
   .today {
-    background: #FFA0A0;
+    background: #fcf5cf;
+    color: #ddbd1a;
   }
   .past {}
   .future {}
   .start-date {}
-  .prev-month {}
-  .next-month {}
+  .prev-month {
+    background: #d3d3d3;
+    color: #565656;
+  }
+  .next-month {
+    background: #d3d3d3;
+    color: #565656;
+  }
   .current-month {}
   .has-events {}
-}
-/* ホバーした際の背景色*/
-.calendar-table tr td:hover {
-  background-color: #FFFF8c;
 }

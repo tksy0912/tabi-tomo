@@ -21,7 +21,7 @@
           <div class="form-group">
             <div class="mr-3"><%= f.label 'パスワード' %>
             <% if @minimum_password_length %>
-            (最低<%= @minimum_password_length %>文字)
+            （<%= @minimum_password_length %>文字以上）
             <% end %></div>
             <%= f.password_field :password, autocomplete: "new-password", size: "50x20", class: "col" %>
           </div>

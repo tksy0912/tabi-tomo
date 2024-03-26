@@ -1,11 +1,10 @@
 <div class="container">
   <div class="row m-4">
-    <h1>マイページ</h1>
+    <h1><%= @user.name %>さんのプロフィール</h1>
   </div>
   <hr>
   <div class="row">
     <div class="col-4">
-      <h3>プロフィール</h3>
       <%= render 'public/users/info', user: @user %>
 
     	  <div class="text-center">ステータス：
