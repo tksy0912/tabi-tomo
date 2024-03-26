@@ -14,19 +14,19 @@
     <%= f.text_field :transportation %>
   </div>
 
-  <div>
-    <%= f.label "宿泊" %>
-    <%= f.radio_button :is_accommodation, true %>
-    <%= f.label "有り" %>
-    <%= f.radio_button :is_accommodation, false %>
-    <%= f.label "無し" %>
+<!--  <div>
+    <= f.label "宿泊" %>
+    <= f.radio_button :is_accommodation, true %>
+    <= f.label "有り" %>
+    <= f.radio_button :is_accommodation, false %>
+    <= f.label "無し" %>
   </div>
 
   <div>
-    <%= f.label "宿泊先" %>
-    <%= f.text_field :accommodation_name %>
+    <= f.label "宿泊先" %>
+    <= f.text_field :accommodation_name %>
   </div>
-
+-->
   <%= f.hidden_field :trip_id, :value => @schedule.trip.id %>
 
   <div class="actions">
