@@ -1,4 +1,6 @@
 class Admin::CommentsController < ApplicationController
+# 管理者以外はアクセスできないように
+  before_action :authenticate_admin!
 
   def destroy
     Comment.find(params[:id]).destroy
