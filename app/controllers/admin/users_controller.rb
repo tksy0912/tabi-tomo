@@ -18,7 +18,7 @@ class Admin::UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     @user.update(user_params)
-    redirect_to admin_user_path(@user)
+    redirect_to request.referer
   end
 
   private
