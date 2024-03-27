@@ -23,7 +23,7 @@
             </tr>
             <tr>
               <th class="p-2">ユーザーステータス</th>
-                <% if @user.is_active == true %>
+                <% if @user.is_active == true %> <!--userのステータスが有効か退会済かの分岐-->
                   <th class="text-success p-2">有効</th>
                 <% else %>
                   <th class="text-secondary p-2">退会済</th>

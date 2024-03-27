@@ -22,11 +22,11 @@
             <td class="d-flex justify-content-center"><%= image_tag user.get_profile_image, size:'100x100', class: 'rounded-circle' %></td>
             <td class="align-middle"><%= user.id %></td>
             <td class="align-middle"><%=link_to user.name, admin_user_path(user.id) %></td>
-            <% if user.is_active == true %><!--customerのステータスが有効の時-->
+            <% if user.is_active == true %> <!--userのステータスが有効か退会済かの分岐-->
               <td class="text-success align-middle">有効</td>
-            <% else %><!--それ以外-->
+            <% else %>
               <td class="text-secondary align-middle">退会済</td>
-            <% end %><!--ifのend-->
+            <% end %>
           </tr>
         <% end %>
         </tbody>

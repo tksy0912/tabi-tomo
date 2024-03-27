@@ -14,7 +14,7 @@ class Public::PostsController < ApplicationController
       @post.save_post_tags(tag_list)
       redirect_to public_post_path(@post.id)
     else
-      flash.now[:alert] = "投稿"
+      flash.now[:alert] = "投稿できませんでした"
       render :new
     end
   end

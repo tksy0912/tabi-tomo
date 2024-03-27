@@ -14,19 +14,19 @@
             <%= link_to 'タイトル編集', edit_public_trip_path(@trip), class: "btn btn-outline-info" %>
           <% end %>
         </div>
-        <hr>
-        <h4 class="m-3">Schedules</h4>
-          <% @schedules.each do |schedule| %>
-            <%= render 'public/schedules/show', schedule: schedule %>
-          <% end %>
-        <div class="mt-2">
-          <% if @trip.user == current_user %>
-            <%= link_to 'スケジュール編集', schedules_edit_public_trip_path(@trip.id), class: "btn btn-outline-info" %>
-          <% end %>
-        </div>
+      <hr>
+      <h4 class="m-3">Schedules</h4>
+        <% @schedules.each do |schedule| %>
+          <%= render 'public/schedules/show', schedule: schedule %>
+        <% end %>
+      <div class="mt-2">
+        <% if @trip.user == current_user %> <!-- 旅行を作成したユーザーのみが編集可能 -->
+          <%= link_to 'スケジュール編集', schedules_edit_public_trip_path(@trip.id), class: "btn btn-outline-info" %>
+        <% end %>
+      </div>
     </div>
     <div class="col-3 m-3  align-self-end">
-      <% if @trip.user == current_user %>
+      <% if @trip.user == current_user %> <!-- 旅行を作成したユーザーのみが削除可能 -->
         <div class="mb-3"><%= link_to '旅行をキャンセルする', public_trip_path(@trip.id), method: :delete, class: "btn btn-danger btn-block rounded-pill" %></div>
         <%= link_to '思い出を投稿する', new_public_post_path(trip_id: @trip.id), class: "btn btn-primary btn-block rounded-pill" %>
       <% end %>

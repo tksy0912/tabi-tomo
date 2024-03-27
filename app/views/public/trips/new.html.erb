@@ -1,14 +1,15 @@
 <div class="container">
   <div class="row">
     <div class="col m-3">
-    <% if @trip.errors.any? %>
-      <%= @trip.errors.count %>件のエラーが発生しました
-      <ul>
-        <% @trip.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    <% end %>
+      <% if @trip.errors.any? %>
+        <%= @trip.errors.count %>件のエラーが発生しました
+        <ul>
+          <% @trip.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      <% end %>
+      
       <h1>New Trip</h1>
       <hr>
       <%= form_with(model: @trip, url: public_trips_path) do |f| %>

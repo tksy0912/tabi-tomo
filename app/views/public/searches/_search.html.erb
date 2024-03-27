@@ -1,4 +1,4 @@
-<% if user_signed_in? %>
+<% if user_signed_in? %> <!-- ログイン時のみ使用可能 -->
   <%= form_with url: public_search_path, local: true, method: :get do |f| %>
       <%= f.text_field :word %><br>
       <%= f.select :range, options_for_select([['Post']]) %>

@@ -1,6 +1,7 @@
 class Public::TripsController < ApplicationController
   def new
     @trip = Trip.new
+    # schedulesも同時に作成
     @trip.schedules.build
   end
 

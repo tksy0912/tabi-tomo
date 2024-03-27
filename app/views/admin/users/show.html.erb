@@ -6,19 +6,16 @@
   <div class="row">
     <div class="col-4">
       <%= render 'public/users/info', user: @user %>
-
     	  <div class="text-center">ステータス：
-        <% if @user.is_active == true %><!--customerのステータスが有効の時-->
+        <% if @user.is_active == true %> <!--userのステータスが有効か退会済かの分岐-->
           <b class="text-success">有効</b>
-        <% else %><!--それ以外-->
+        <% else %>
           <b class="text-secondary">退会済</b>
         <% end %>
         </div>
-
         <div class="p-3">
           <%= link_to "ステータス編集", edit_admin_user_path(@user), class: "btn btn-outline-info btn-block" %>
         </div>
-
     </div>
     <div class="col-md-7 offset-md-1">
       <%= render 'admin/posts/list',postss: @posts %>
