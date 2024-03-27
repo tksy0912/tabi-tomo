@@ -4,7 +4,9 @@
     <h2 class="m-3">思い出一覧</h2>
     <hr>
     <%= render 'index', post: @post %>
-    <%= paginate @posts, theme: 'twitter-bootstrap-4' %>
+    <div class="d-flex justify-content-center">
+      <%= paginate @posts, theme: 'twitter-bootstrap-4' %>
+    </div>
     </div>
   </div>
 </div>

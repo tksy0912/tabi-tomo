@@ -3,7 +3,9 @@
     <div class="col m-3">
       <h2 class="m-3">タグ「<%=@tag.name%>」の投稿一覧</h2>
       <%= render 'index', posts: @posts %>
-      <%= paginate @posts, theme: 'twitter-bootstrap-4' %>
+      <div class="d-flex justify-content-center">
+        <%= paginate @posts, theme: 'twitter-bootstrap-4' %>
+      </div>
     </div>
   </div>
 </div>
