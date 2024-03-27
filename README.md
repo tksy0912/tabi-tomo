@@ -19,7 +19,8 @@
  - 旅行後、思い出として投稿する時
 ​
 ## 設計書
-後ほど作成予定
+ - 設計書（https://docs.google.com/spreadsheets/d/1PIncj6_SZQ0UXb3jhPr6x5ihWL58KgxOxsCvPWk3W_8/edit#gid=1932261826）
+ - ER図（https://app.diagrams.net/#G1E1d9XG9qCmgr4cEtfxIuhUicj6Lz9jNe#%7B%22pageId%22%3A%22R2lEEEUBdFMjLlhIrx00%22%7D）
 ​
 ## 開発環境
 - OS：Linux(CentOS)
@@ -29,5 +30,5 @@
 - IDE：Cloud9
 ​
 ## 使用素材
-- フリーイラスト・写真素材として以下を使用予定
+- フリーイラスト・写真素材として以下を使用
   - Pakutaso(https://www.pakutaso.com/)
