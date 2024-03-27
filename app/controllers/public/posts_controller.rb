@@ -10,9 +10,11 @@ class Public::PostsController < ApplicationController
     @post.user_id = current_user.id
     tag_list = params[:post][:name].split(',')
     if @post.save
+      flash[:notice] = "思い出を投稿しました！"
       @post.save_post_tags(tag_list)
       redirect_to public_post_path(@post.id)
     else
+      flash.now[:alert] = "投稿"
       render :new
     end
   end

@@ -30,7 +30,6 @@
       <% end %>
       <!-- ログインユーザーでなければ該当ユーザーの投稿一覧を表示 -->
       <% else %>
-        <h2 class="mt-3">思い出</h2>
         <%= render 'public/posts/list', posts: @posts %>
     <% end %>
     </div>
