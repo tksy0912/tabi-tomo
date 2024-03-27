@@ -1,3 +1,4 @@
+<table class="mb-3">
   <tr>
     <th class="col-lg-2" style="background-color: #aeeaef;">日付</th>
     <td class="text p-2"><%= schedule.date %></td>
@@ -10,24 +11,4 @@
     <th class="col-lg-2" style="background-color: #aeeaef;">移動手段</th>
     <td class="text p-2"><%= schedule.transportation %></td>
   </tr>
-  <tr>
-    <th class="col-lg-2" style="background-color: #aeeaef;">宿泊</th>
-    <% if schedule.is_accommodation %>
-      <td class="text p-2">あり</td>
-    <% else %>
-      <td class="text-secondary p-2">日帰り</td>
-    <% end %>
-  </tr>
-  <tr>
-    <th class="col-lg-2" style="background-color: #aeeaef;">宿泊先</th>
-    <td class="text p-2">
-    <% if schedule.is_accommodation %>
-      <%= schedule.accommodation_name %>
-    <% else %>
-      宿泊情報なし
-    <% end %>
-    </td>
-  </tr>
-  <tr>
-    <td></td>
-  </tr>
+</table>

@@ -1,5 +1,5 @@
 class Public::UsersController < ApplicationController
-  
+
   def show
     @user = User.find(params[:id])
     @trips = @user.trips
@@ -13,7 +13,7 @@ class Public::UsersController < ApplicationController
   def update
     @user = current_user
     if @user.update(user_params)
-       redirect_to users_my_page_path(@user)
+       redirect_to users_my_page_path(current_user)
     else
       render :edit
     end

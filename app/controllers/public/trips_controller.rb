@@ -61,7 +61,7 @@ class Public::TripsController < ApplicationController
   def destroy
     @trip = Trip.find(params[:id])
     @trip.destroy
-    redirect_to users_my_page_path
+    redirect_to users_my_page_path(current_user)
   end
 
   private
