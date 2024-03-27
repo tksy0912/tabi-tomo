@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   namespace :public do
     get "home/top" => "homes#top"
     get "about" => "homes#about"
-    resources :users, only: [:new, :create, :edit, :update] do
+    resources :users, only: [:edit, :update] do
       member do
         get :favorites
       end
