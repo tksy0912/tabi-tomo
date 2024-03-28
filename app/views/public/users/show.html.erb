@@ -8,13 +8,16 @@
     <%= render 'info', user: @user %>
     <% if @user == current_user %> <!-- ログインユーザーのみプロフィール編集可能 -->
       <%= link_to "プロフィール編集", users_information_edit_path, class: "btn btn-outline-info btn-block" %>
-      <%= render 'public/posts/list', posts: @posts %>
+      <hr>
+      <div class="mt-5">
+        <%= render 'public/posts/list', posts: @posts %>
+      </div>
     <% end %>
     </div>
 
     <div class="col-md-7 offset-md-1">
     <% if @user == current_user %> <!-- ログインユーザーならカレンダーを表示 -->
-      <h2 class="m-2 alert alert-info" role="alert">My 旅</h2>
+      <h2 class="mt-2 alert alert-info" role="alert">My 旅</h2>
       <div class="m-3 d-flex flex-row-reverse">
         <%= link_to "▶New Trip！", new_public_trip_path, class: "btn btn-outline-info rounded-pill btn-lg" %>
       </div>

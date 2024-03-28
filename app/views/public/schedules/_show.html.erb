@@ -1,14 +1,11 @@
-<table class="mb-3">
-  <tr>
-    <th class="col-lg-2" style="background-color: #aeeaef;">日付</th>
-    <td class="text p-2"><%= schedule.date %></td>
-  </tr>
-  <tr>
-    <th class="col-lg-2" style="background-color: #aeeaef;">行先</th>
-    <td class="text p-2"><%= schedule.destination %></td>
-  </tr>
-  <tr>
-    <th class="col-lg-2" style="background-color: #aeeaef;">移動手段</th>
-    <td class="text p-2"><%= schedule.transportation %></td>
-  </tr>
-</table>
+<div class="card-deck">
+  <div class="card mb-4">
+    <div class="card-body">
+      <h4 class="card-title"><%= schedule.destination %></h4>
+      <p class="card-text">
+        <i class="fa-solid fa-calendar-days mr-4" style="color: #07a0ab;"></i><%= schedule.date %><br>
+        <i class="fa-solid fa-truck-plane mr-3" style="color: #07a0ab;"></i><%= schedule.transportation %>
+      </p>
+    </div>
+  </div>
+</div>
