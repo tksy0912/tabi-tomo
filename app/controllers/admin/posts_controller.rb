@@ -3,7 +3,8 @@ class Admin::PostsController < ApplicationController
   before_action :authenticate_admin!
 
   def index
-    @posts = Post.all.page(params[:page]).per(10)
+    @posts = Post.all.order(created_at: :desc).page(params[:page]).per(10)
+    # .order(created_at: :desc) で新しい順に表示される
   end
 
   def show
