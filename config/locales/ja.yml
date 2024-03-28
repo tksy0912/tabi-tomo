@@ -1,0 +1,17 @@
+ja:
+ activerecord:
+   models:
+     schedules: スケジュール
+     trip: 旅行
+     user: ユーザー
+   attributes:
+     schedules:
+       date: 日付
+       destination: 行先
+       transportation: 移動手段
+     trip:
+       title: タイトル
+       start_time: 出発日
+       end_time: 帰着日
+     user:
+       name: 名前

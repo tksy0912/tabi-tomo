@@ -1,16 +1,9 @@
 <div class="container">
   <div class="row">
     <div class="col m-5">
+      <%= render "layouts/error_messages", model: @user %>
       <h1>プロフィール編集</h1>
       <hr>
-      <% if @user.errors.any? %>
-        <%= @user.errors.count %>件のエラーが発生しました
-        <ul>
-          <% @user.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-          <% end %>
-        </ul>
-      <% end %>
       <%= form_with(model: @user, url: users_information_path, local: true, method: :patch) do |f| %>
         <div class="form-group">
           <b><%= f.label 'アイコン' %></b>

@@ -3,5 +3,5 @@ class PostTag < ApplicationRecord
   has_many :posts, through: :post_trip_tags
   #2つのモデル間の関連がpost_trip_tagsモデルを通じて行われる。
 
-  validates :name, presence:true, length:{maximum:50}
+  validates :name, presence:true, length:{maximum:10}
 end

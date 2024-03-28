@@ -1,6 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col m-3">
+      <%= render "layouts/error_messages", model: @trip %>
       <h2 class="m-3">タイトル編集</h2>
       <hr>
       <%= form_with(model: @trip, url: edit_public_trip_path(@trip.id), method: :patch) do |f| %>

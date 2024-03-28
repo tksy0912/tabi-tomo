@@ -25,7 +25,7 @@
       </div>
       <div class="m-3">
       <% if @post.user == current_user %> <!-- 投稿したユーザーのみが削除可能 -->
-        <%= link_to "削除する", public_post_path(@post.id), method: :delete, class: "btn btn-danger ms-3" %>
+        <%= link_to "削除する", public_post_path(@post.id), method: :delete, data: {confirm: "削除しますか？"}, class: "btn btn-danger ms-3" %>
       <% end %>
       </div>
     </div>

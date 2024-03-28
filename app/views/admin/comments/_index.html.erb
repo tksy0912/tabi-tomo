@@ -8,7 +8,7 @@
         <% end %>
       </td>
       <td><%= comment.comment %></td>
-      <td><%= link_to "削除", admin_comment_path(comment.id), method: :delete, class: "ml-3 btn btn-sm btn-outline-danger float-end" %></td>
+      <td><%= link_to "削除", admin_comment_path(comment.id), method: :delete, data: {confirm: "削除しますか？"}, class: "ml-3 btn btn-sm btn-outline-danger float-end" %></td>
     </tr>
     <% end %>
   </tbody>

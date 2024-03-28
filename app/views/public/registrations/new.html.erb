@@ -2,11 +2,11 @@
   <div class="row m-5">
     <div class="mx-auto">
       <div class="col m-1">
+        <%= render "public/shared/error_messages", resource: resource %>
         <h1 class="text-center">はじめまして！</h1>
       </div>
       <div class="col mt-2 mx-auto">
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-          <%= render "public/shared/error_messages", resource: resource %>
         　<div class="form-group">
         　 <div class="mr-3"><%= f.label 'ユーザーネーム' %></div>
         　  <%= f.text_field :name, autofocus: true, autocomplete: "name", size: "50x20", class: "col" %>
