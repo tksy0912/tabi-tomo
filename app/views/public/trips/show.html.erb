@@ -27,7 +27,7 @@
     </div>
     <div class="col-3 m-3  align-self-end">
       <% if @trip.user == current_user %> <!-- 旅行を作成したユーザーのみが削除可能 -->
-        <div class="mb-3"><%= link_to '旅行をキャンセルする', public_trip_path(@trip.id), method: :delete, class: "btn btn-outline-danger btn-block rounded-pill btn-lg" %></div>
+        <div class="mb-3"><%= link_to '旅行をキャンセルする', public_trip_path(@trip.id), method: :delete, data: {confirm: "削除しますか？"}, class: "btn btn-outline-danger btn-block rounded-pill btn-lg" %></div>
         <%= link_to '思い出を投稿する', new_public_post_path(trip_id: @trip.id), class: "btn btn-outline-primary btn-block rounded-pill btn-lg" %>
       <% end %>
     </div>
