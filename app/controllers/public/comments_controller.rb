@@ -4,12 +4,12 @@ class Public::CommentsController < ApplicationController
     comment = post.comments.new(comment_params)
     comment.user = current_user
     comment.save
-    redirect_to request.referer
+#    redirect_to request.referer
   end
 
   def destroy
     Comment.find(params[:id]).destroy
-    redirect_to request.referer
+#    redirect_to request.referer
   end
 
 

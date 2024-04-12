@@ -1,5 +1,5 @@
 class Admin::PostsController < ApplicationController
-# 管理者以外はアクセスできないように
+  # 管理者以外はアクセスできないように
   before_action :authenticate_admin!
 
   def index
