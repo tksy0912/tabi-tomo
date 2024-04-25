@@ -19,15 +19,24 @@ class Public::TripsController < ApplicationController
 
   def edit
     @trip = Trip.find(params[:id])
+    if @trip.user_id != current_user.id
+      flash[:alert] = "他のユーザーの旅行プランは編集できません"
+      redirect_to users_my_page_path(current_user)
+    end
   end
 
   def schedules_edit
     @trip = Trip.find(params[:id])
     @trip.schedules
+    if @trip.user_id != current_user.id
+      flash[:alert] = "他のユーザーの旅行プランは編集できません"
+      redirect_to users_my_page_path(current_user)
+    end
   end
 
   def update
     @trip = Trip.find(params[:id])
+    @trip.user_id = current_user.id
     if @trip.update(trip_params)
       flash[:notice] = "更新しました！"
       redirect_to public_trip_path(@trip.id)
@@ -39,6 +48,7 @@ class Public::TripsController < ApplicationController
 
   def schedules_update
     @trip = Trip.find(params[:id])
+    @trip.user_id = current_user.id
     if @trip.update(trip_with_schedules_params)
       flash[:notice] = "スケジュールを更新しました！"
       redirect_to public_trip_path(@trip.id)

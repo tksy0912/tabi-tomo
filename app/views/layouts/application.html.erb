@@ -43,7 +43,7 @@
 
     <main>
      <% flash.each do |message_type, message| %>
-       <div class="flash-message <%= message_type %> d-flex justify-content-center"><%= message %></div>
+       <div class="flash-message alert <%= message_type == 'notice' ? 'alert-info' : 'alert-danger' %> d-flex justify-content-center"><%= message %></div>
      <% end %>
      <%= yield %>
     </main>
