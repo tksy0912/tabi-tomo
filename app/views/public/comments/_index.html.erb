@@ -16,7 +16,7 @@
       <td><%= comment.comment %></td>
       <td>
         <% if comment.user == current_user %> <!-- コメントしたユーザーのみ削除可能 -->
-          <%= link_to "削除", public_post_comment_path(post, comment), method: :delete, class: "ml-3 btn btn-sm btn-outline-danger float-end", remote: true %>
+          <%= link_to "削除", post_comment_path(post, comment), method: :delete, class: "ml-3 btn btn-sm btn-outline-danger float-end", remote: true %>
         <% end %>
       </td>
     </tr>

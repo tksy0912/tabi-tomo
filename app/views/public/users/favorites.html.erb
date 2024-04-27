@@ -7,7 +7,7 @@
         <% @favorite_posts.each do |post| %>
         <div class="col-2 m-2">
           <div class="card">
-            <div class="card-body"><%= link_to post.title, public_post_path(post.id) %></div>
+            <div class="card-body"><%= link_to post.title, post_path(post.id) %></div>
             <img class="card-img-bottom"><%= image_tag post.get_post_image, size:'50×50' %>
           </div>
         </div>

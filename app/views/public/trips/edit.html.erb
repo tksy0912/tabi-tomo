@@ -4,7 +4,7 @@
       <%= render "layouts/error_messages", model: @trip %>
       <h2 class="m-3">タイトル編集</h2>
       <hr>
-      <%= form_with(model: @trip, url: edit_public_trip_path(@trip.id), method: :patch) do |f| %>
+      <%= form_with(model: @trip, url: trip_path(@trip.id), method: :patch) do |f| %>
       <table class="table table-borderless">
         <tr>
           <th class="col-lg-2" style="background-color: #20beea;"><%= f.label "タイトル" %></th>
@@ -24,7 +24,7 @@
       </div>
       <% end %>
       <div class="mt-5">
-        <%= link_to '◀Back', public_trip_path(@trip), class: "btn btn-outline-primary ms-3" %>
+        <%= link_to '◀Back', trip_path(@trip), class: "btn btn-outline-primary ms-3" %>
       </div>
     </div>
   </div>

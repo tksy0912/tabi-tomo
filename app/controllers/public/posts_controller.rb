@@ -12,7 +12,7 @@ class Public::PostsController < ApplicationController
     if @post.save
       flash[:notice] = "思い出を投稿しました！"
       @post.save_post_tags(tag_list)
-      redirect_to public_post_path(@post.id)
+      redirect_to post_path(@post.id)
     else
       flash.now[:alert] = "投稿できませんでした"
       render :new

@@ -10,7 +10,7 @@ class Public::TripsController < ApplicationController
     @trip.user_id = current_user.id
     if @trip.save
       flash[:notice] = "新しい旅行プランを作成しました！"
-      redirect_to public_trip_path(@trip)
+      redirect_to trip_path(@trip)
     else
       flash.now[:alert] = "旅行プランを作成できませんでした"
       render :new
@@ -38,10 +38,10 @@ class Public::TripsController < ApplicationController
     @trip = Trip.find(params[:id])
     @trip.user_id = current_user.id
     if @trip.update(trip_params)
-      flash[:notice] = "更新しました！"
-      redirect_to public_trip_path(@trip.id)
+      flash[:notice] = "旅行内容を更新しました！"
+      redirect_to trip_path(@trip.id)
     else
-      flash.now[:alert] = "更新できませんでした"
+      flash.now[:alert] = "旅行内容の更新ができませんでした"
       render :edit
     end
   end
@@ -51,7 +51,7 @@ class Public::TripsController < ApplicationController
     @trip.user_id = current_user.id
     if @trip.update(trip_with_schedules_params)
       flash[:notice] = "スケジュールを更新しました！"
-      redirect_to public_trip_path(@trip.id)
+      redirect_to trip_path(@trip.id)
     else
       flash.now[:alert] = "スケジュールの更新ができませんでした"
       render :schedules_edit

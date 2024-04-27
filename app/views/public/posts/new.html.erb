@@ -3,7 +3,7 @@
     <div class="col m-3">
     <h2 class="m-3">新規投稿</h2>
     <hr>
-      <%= form_with(model: @post, url: public_posts_path) do |f| %>
+      <%= form_with(model: @post, url: posts_path) do |f| %>
         <%= f.hidden_field :trip_id, value: params[:trip_id] %>
         <%= f.file_field :post_image, accept: "image/*", class: "w-100" %>
         <div class="input-group mb-3 mt-4">
