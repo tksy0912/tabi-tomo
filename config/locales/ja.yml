@@ -15,3 +15,7 @@ ja:
        end_time: 帰着日
      user:
        name: 名前
+     post:
+       title: タイトル
+       caption: コメント
+       post_image: 投稿画像

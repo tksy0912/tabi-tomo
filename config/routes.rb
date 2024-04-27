@@ -28,6 +28,7 @@ Rails.application.routes.draw do
         get :schedules_edit
         patch :schedules_update
       end
+      resources :posts
     end
     resources :posts, only: [:index, :show, :new, :create, :destroy] do
       resources :comments, only: [:create, :destroy]
