@@ -1,6 +1,12 @@
 <table>
+  <% post.comments.each do |comment| %>
+  <thead>
+    <tr>
+      <th></th>
+      <th class="ml-3 text-info font-weight-light"><%= comment.created_at.to_date %></th>
+    </tr>
+  </thead>
   <tbody>
-    <% post.comments.each do |comment| %>
     <tr>
       <td>
         <%= link_to users_my_page_path(comment.user) do %>
@@ -14,6 +20,6 @@
         <% end %>
       </td>
     </tr>
-    <% end %>
   </tbody>
+  <% end %>
 </table>

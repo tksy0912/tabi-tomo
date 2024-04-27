@@ -14,7 +14,7 @@
           <div class=<%= "favorite-" + @post.id.to_s %> >
             <%= render "public/favorites/btn", post: @post %>
           </div>
-          <p class="card-text"><%= @post.caption %></p>
+          <p class="card-text"><%= simple_format(@post.caption, sanitize: true) %></p>
           <p>
             <%= link_to users_my_page_path(@post.user) do %>
               <%= image_tag @post.user.get_profile_image, size: "100x100", class: 'rounded-circle' %>
