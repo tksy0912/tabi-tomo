@@ -54,7 +54,13 @@ class Post < ApplicationRecord
     # 新しいタグを保存
     new_tags.each do |new_name|
       post_tag = PostTag.find_or_create_by(name:new_name)
-      self.post_tags << post_tag
+
+      unless self.post_tags.exists?(post_tag.id)
+        self.post_tags << post_tag
+      else
+        @error_message = "「#{new_name}」タグは既に存在します"
+        return false
+      end
     end
   end
 
