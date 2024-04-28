@@ -57,9 +57,6 @@ class Post < ApplicationRecord
 
       unless self.post_tags.exists?(post_tag.id)
         self.post_tags << post_tag
-      else
-        @error_message = "「#{new_name}」タグは既に存在します"
-        return false
       end
     end
   end
