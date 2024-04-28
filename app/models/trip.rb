@@ -13,6 +13,6 @@ class Trip < ApplicationRecord
 
   def start_end_check
     errors.add(:end_time,"は出発日以降の日付を選択してください") unless
-    self.start_time < self.end_time
+    self.start_time <= self.end_time
   end
 end
