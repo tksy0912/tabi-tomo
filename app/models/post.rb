@@ -54,7 +54,10 @@ class Post < ApplicationRecord
     # 新しいタグを保存
     new_tags.each do |new_name|
       post_tag = PostTag.find_or_create_by(name:new_name)
-      self.post_tags << post_tag
+
+      unless self.post_tags.exists?(post_tag.id)
+        self.post_tags << post_tag
+      end
     end
   end
 

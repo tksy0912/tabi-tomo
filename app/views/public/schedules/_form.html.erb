@@ -1,11 +1,11 @@
-<%= form_with(model: @schedule, url: public_schedules_path) do |f| %>
+<%= form_with(model: @schedule, url: schedules_path) do |f| %>
   <div>
     <%= f.label "日付" %>
     <%= f.date_field :date %>
   </div>
   <div>
     <%= f.label "行先" %>
-    <%= f.text_field :destination %>
+    <%= f.text_area :destination %>
   </div>
   <div>
     <%= f.label "移動手段" %>

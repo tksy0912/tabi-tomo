@@ -14,12 +14,12 @@
             <% end %>
           </li>
           <li class="nav-item">
-            <%= link_to public_posts_path, class: 'nav-link' do %>
+            <%= link_to posts_path, class: 'nav-link' do %>
               <button type="button" class="btn btn-outline-light rounded-pill"><i class="fa-solid fa-photo-film"></i><br>皆の思い出</button>
             <% end %>
           </li>
           <li class="nav-item">
-            <%= link_to favorites_public_user_path(current_user), class: 'nav-link' do %>
+            <%= link_to favorites_user_path(current_user), class: 'nav-link' do %>
               <button type="button" class="btn btn-outline-light rounded-pill"><i class="fa-solid fa-heart"></i><br>お気に入り</button>
             <% end %>
           </li>
@@ -33,7 +33,7 @@
         <a class="navbar-brand align-content-center"><%= link_to image_tag("logo.png", :size =>'300x105'), "/" %></a>
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <%= link_to public_about_path, class: 'nav-link' do %>
+            <%= link_to about_path, class: 'nav-link' do %>
               <button type="button" class="btn btn-outline-light rounded-pill"><i class="fa-solid fa-link"></i><br>はじめに</button>
             <% end %>
           </li>

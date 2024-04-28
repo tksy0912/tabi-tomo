@@ -9,7 +9,7 @@
           <!-- タグリスト -->
           <% @post_tags.each do |tag| %>
           <i class="fa-sharp fa-solid fa-tag"></i>
-            <%= link_to tag.name,public_search_tag_path(post_tag_id: tag.id) %>
+            <%= link_to tag.name, search_tag_path(post_tag_id: tag.id) %>
           <% end %>
           <div class=<%= "favorite-" + @post.id.to_s %> >
             <%= render "public/favorites/btn", post: @post %>
@@ -19,13 +19,13 @@
             <%= link_to users_my_page_path(@post.user) do %>
               <%= image_tag @post.user.get_profile_image, size: "100x100", class: 'rounded-circle' %>
             <% end %>
-            <%= link_to '旅行プラン', public_trip_path(@post.trip), class: "btn btn-primary ms-3" %>
+            <%= link_to '旅行プラン', trip_path(@post.trip), class: "btn btn-primary ms-3" %>
           </p>
         </div>
       </div>
       <div class="m-3">
       <% if @post.user == current_user %> <!-- 投稿したユーザーのみが削除可能 -->
-        <%= link_to "削除する", public_post_path(@post.id), method: :delete, data: {confirm: "削除しますか？"}, class: "btn btn-danger ms-3" %>
+        <%= link_to "削除する", post_path(@post.id), method: :delete, data: {confirm: "削除しますか？"}, class: "btn btn-danger ms-3" %>
       <% end %>
       </div>
     </div>

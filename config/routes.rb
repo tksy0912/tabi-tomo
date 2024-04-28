@@ -15,7 +15,7 @@ Rails.application.routes.draw do
 
   root to: "public/homes#top"
 
-  namespace :public do
+  scope module: :public do
     get "home/top" => "homes#top"
     get "about" => "homes#about"
     resources :users, only: [:edit, :update] do
@@ -28,13 +28,14 @@ Rails.application.routes.draw do
         get :schedules_edit
         patch :schedules_update
       end
+      resources :posts
     end
     resources :posts, only: [:index, :show, :new, :create, :destroy] do
       resources :comments, only: [:create, :destroy]
       resource :favorites, only: [:create, :destroy]
     end
   end
-  patch '/public/trips/:id/edit', to: 'public/trips#update', as: 'update_public_trip'
+  patch '/public/trips/:id/edit', to: 'public/trips#update', as: 'update_trip'
 
   scope module: :public do
     get "users/my_page/:id" => "users#show", as: "users_my_page"
@@ -49,7 +50,7 @@ Rails.application.routes.draw do
     resources :comments, only: [:destroy]
   end
 
-  get "public/search" => "public/searches#search"
-  get "public/search_tag" => "public/posts#search_tag"
+  get "search" => "public/searches#search"
+  get "search_tag" => "public/posts#search_tag"
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

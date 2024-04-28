@@ -1,5 +1,5 @@
 <% if user_signed_in? %> <!-- ログイン時のみ使用可能 -->
-  <%= form_with url: public_search_path, local: true, method: :get do |f| %>
+  <%= form_with url: search_path, local: true, method: :get do |f| %>
       <%= f.text_field :word %><br>
       <%= f.select :range, options_for_select([['Post']]) %>
       <%= f.select :search, options_for_select([["完全一致","perfect_match"], ["部分一致","partial_match"]]) %>

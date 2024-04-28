@@ -4,11 +4,11 @@
       <%= render "layouts/error_messages", model: @trip %>
       <h1>New Trip</h1>
       <hr>
-      <%= form_with(model: @trip, url: public_trips_path) do |f| %>
+      <%= form_with(model: @trip, url: trips_path) do |f| %>
       <table class="table table-borderless">
         <tr>
           <th class="col-lg-2" style="background-color: #20beea;"><%= f.label "タイトル" %></th>
-          <td><%= f.text_field :title, size: "50x20" %></td>
+          <td><%= f.text_field :title, size: "50x20", placeholder: "20文字以内で入力してください" %></td>
         </tr>
         <tr>
           <th class="col-lg-2" style="background-color: #20beea;"><%= f.label "日程" %></th>
