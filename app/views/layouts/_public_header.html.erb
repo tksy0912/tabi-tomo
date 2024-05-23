@@ -6,7 +6,7 @@
     </button>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <% if user_signed_in? %>
-        <a class="navbar-brand align-content-center"><%= link_to image_tag("logo.png", :size =>'300x105'), "/public/about" %></a>
+        <a class="navbar-brand align-content-center"><%= link_to image_tag("logo.png", :size =>'300x105'), "/about" %></a>
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
             <%= link_to users_my_page_path(current_user), class: 'nav-link' do %>
